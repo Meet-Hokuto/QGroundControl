@@ -1,0 +1,80 @@
+This is BibTeX, Version 0.99d (TeX Live 2019/W32TeX)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: TII.aux
+The style file: ./bib/IEEEtran.bst
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Database file #1: TII.bib
+Repeated entry---line 836 of file TII.bib
+ : @article {PMID:29364873
+ :                        ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 851 of file TII.bib
+ : @inproceedings{7892326
+ :                       ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 867 of file TII.bib
+ : @article{734972
+ :                ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 907 of file TII.bib
+ : @inproceedings{Pittman:2014:EHT:2557500.2557527
+ :                                                ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 926 of file TII.bib
+ : @inproceedings{Ying2004Can
+ :                           ,
+I'm skipping whatever remains of this entry
+-- IEEEtran.bst version 1.12 (2007/01/11) by Michael Shell.
+-- http://www.michaelshell.org/tex/ieeetran/bibtex/
+-- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
+Warning--empty year in KerstenPotential
+Warning--missing publisher in Harltey2003Multiple
+Warning--empty journal in article
+
+Done.
+You've used 36 entries,
+            4024 wiz_defined-function locations,
+            1064 strings with 15831 characters,
+and the built_in function-call counts, 30821 in all, are:
+= -- 2499
+> -- 760
+< -- 265
++ -- 420
+- -- 131
+* -- 1567
+:= -- 4601
+add.period$ -- 77
+call.type$ -- 36
+change.case$ -- 38
+chr.to.int$ -- 612
+cite$ -- 39
+duplicate$ -- 2163
+empty$ -- 2444
+format.name$ -- 163
+if$ -- 7138
+int.to.chr$ -- 0
+int.to.str$ -- 36
+missing$ -- 382
+newline$ -- 167
+num.names$ -- 38
+pop$ -- 852
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 2
+skip$ -- 2379
+stack$ -- 0
+substring$ -- 1474
+swap$ -- 1836
+text.length$ -- 61
+text.prefix$ -- 0
+top$ -- 5
+type$ -- 36
+warning$ -- 3
+while$ -- 129
+width$ -- 38
+write$ -- 429
+(There were 5 error messages)

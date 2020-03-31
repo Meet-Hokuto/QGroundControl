@@ -1,0 +1,2131 @@
+
+%% bare_jrnl.tex
+%% V1.4b
+%% 2015/08/26
+%% by Michael Shell
+%% see http://www.michaelshell.org/
+%% for current contact information.
+%%
+%% This is a skeleton file demonstrating the use of IEEEtran.cls
+%% (requires IEEEtran.cls version 1.8b or later) with an IEEE
+%% journal paper.
+%%
+%% Support sites:
+%% http://www.michaelshell.org/tex/ieeetran/
+%% http://www.ctan.org/pkg/ieeetran
+%% and
+%% http://www.ieee.org/
+
+%%*************************************************************************
+%% Legal Notice:
+%% This code is offered as-is without any warranty either expressed or
+%% implied; without even the implied warranty of MERCHANTABILITY or
+%% FITNESS FOR A PARTICULAR PURPOSE! 
+%% User assumes all risk.
+%% In no event shall the IEEE or any contributor to this code be liable for
+%% any damages or losses, including, but not limited to, incidental,
+%% consequential, or any other damages, resulting from the use or misuse
+%% of any information contained here.
+%%
+%% All comments are the opinions of their respective authors and are not
+%% necessarily endorsed by the IEEE.
+%%
+%% This work is distributed under the LaTeX Project Public License (LPPL)
+%% ( http://www.latex-project.org/ ) version 1.3, and may be freely used,
+%% distributed and modified. A copy of the LPPL, version 1.3, is included
+%% in the base LaTeX documentation of all distributions of LaTeX released
+%% 2003/12/01 or later.
+%% Retain all contribution notices and credits.
+%% ** Modified files should be clearly indicated as such, including  **
+%% ** renaming them and changing author support contact information. **
+%%*************************************************************************
+
+
+% *** Authors should verify (and, if needed, correct) their LaTeX system  ***
+% *** with the testflow diagnostic prior to trusting their LaTeX platform ***
+% *** with production work. The IEEE's font choices and paper sizes can   ***
+% *** trigger bugs that do not appear when using other class files.       ***                          ***
+% The testflow support page is at:
+% http://www.michaelshell.org/tex/testflow/
+
+
+
+\documentclass[journal]{IEEEtran}
+%
+% If IEEEtran.cls has not been installed into the LaTeX system files,
+% manually specify the path to it like:
+% \documentclass[journal]{../sty/IEEEtran}
+
+
+
+
+
+% Some very useful LaTeX packages include:
+% (uncomment the ones you want to load)
+
+
+% *** MISC UTILITY PACKAGES ***
+%
+%\usepackage{ifpdf}
+% Heiko Oberdiek's ifpdf.sty is very useful if you need conditional
+% compilation based on whether the output is pdf or dvi.
+% usage:
+% \ifpdf
+%   % pdf code
+% \else
+%   % dvi code
+% \fi
+% The latest version of ifpdf.sty can be obtained from:
+% http://www.ctan.org/pkg/ifpdf
+% Also, note that IEEEtran.cls V1.7 and later provides a builtin
+% \ifCLASSINFOpdf conditional that works the same way.
+% When switching from latex to pdflatex and vice-versa, the compiler may
+% have to be run twice to clear warning/error messages.
+
+
+
+
+
+
+% *** CITATION PACKAGES ***
+%
+%\usepackage{cite}
+% cite.sty was written by Donald Arseneau
+% V1.6 and later of IEEEtran pre-defines the format of the cite.sty package
+% \cite{} output to follow that of the IEEE. Loading the cite package will
+% result in citation numbers being automatically sorted and properly
+% "compressed/ranged". e.g., [1], [9], [2], [7], [5], [6] without using
+% cite.sty will become [1], [2], [5]--[7], [9] using cite.sty. cite.sty's
+% \cite will automatically add leading space, if needed. Use cite.sty's
+% noadjust option (cite.sty V3.8 and later) if you want to turn this off
+% such as if a citation ever needs to be enclosed in parenthesis.
+% cite.sty is already installed on most LaTeX systems. Be sure and use
+% version 5.0 (2009-03-20) and later if using hyperref.sty.
+% The latest version can be obtained at:
+% http://www.ctan.org/pkg/cite
+% The documentation is contained in the cite.sty file itself.
+
+
+
+
+
+
+% *** GRAPHICS RELATED PACKAGES ***
+%
+\ifCLASSINFOpdf
+  % \usepackage[pdftex]{graphicx}
+  % declare the path(s) where your graphic files are
+  % \graphicspath{{../pdf/}{../jpeg/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  % \DeclareGraphicsExtensions{.pdf,.jpeg,.png}
+\else
+  % or other class option (dvipsone, dvipdf, if not using dvips). graphicx
+  % will default to the driver specified in the system graphics.cfg if no
+  % driver is specified.
+  % \usepackage[dvips]{graphicx}
+  % declare the path(s) where your graphic files are
+  % \graphicspath{{../eps/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  % \DeclareGraphicsExtensions{.eps}
+\fi
+% graphicx was written by David Carlisle and Sebastian Rahtz. It is
+% required if you want graphics, photos, etc. graphicx.sty is already
+% installed on most LaTeX systems. The latest version and documentation
+% can be obtained at: 
+% http://www.ctan.org/pkg/graphicx
+% Another good source of documentation is "Using Imported Graphics in
+% LaTeX2e" by Keith Reckdahl which can be found at:
+% http://www.ctan.org/pkg/epslatex
+%
+% latex, and pdflatex in dvi mode, support graphics in encapsulated
+% postscript (.eps) format. pdflatex in pdf mode supports graphics
+% in .pdf, .jpeg, .png and .mps (metapost) formats. Users should ensure
+% that all non-photo figures use a vector format (.eps, .pdf, .mps) and
+% not a bitmapped formats (.jpeg, .png). The IEEE frowns on bitmapped formats
+% which can result in "jaggedy"/blurry rendering of lines and letters as
+% well as large increases in file sizes.
+%
+% You can find documentation about the pdfTeX application at:
+% http://www.tug.org/applications/pdftex
+
+
+
+
+
+% *** MATH PACKAGES ***
+%
+%\usepackage{amsmath}
+% A popular package from the American Mathematical Society that provides
+% many useful and powerful commands for dealing with mathematics.
+%
+% Note that the amsmath package sets \interdisplaylinepenalty to 10000
+% thus preventing page breaks from occurring within multiline equations. Use:
+%\interdisplaylinepenalty=2500
+% after loading amsmath to restore such page breaks as IEEEtran.cls normally
+% does. amsmath.sty is already installed on most LaTeX systems. The latest
+% version and documentation can be obtained at:
+% http://www.ctan.org/pkg/amsmath
+
+
+
+
+
+% *** SPECIALIZED LIST PACKAGES ***
+%
+%\usepackage{algorithmic}
+% algorithmic.sty was written by Peter Williams and Rogerio Brito.
+% This package provides an algorithmic environment fo describing algorithms.
+% You can use the algorithmic environment in-text or within a figure
+% environment to provide for a floating algorithm. Do NOT use the algorithm
+% floating environment provided by algorithm.sty (by the same authors) or
+% algorithm2e.sty (by Christophe Fiorio) as the IEEE does not use dedicated
+% algorithm float types and packages that provide these will not provide
+% correct IEEE style captions. The latest version and documentation of
+% algorithmic.sty can be obtained at:
+% http://www.ctan.org/pkg/algorithms
+% Also of interest may be the (relatively newer and more customizable)
+% algorithmicx.sty package by Szasz Janos:
+% http://www.ctan.org/pkg/algorithmicx
+
+
+
+
+% *** ALIGNMENT PACKAGES ***
+%
+%\usepackage{array}
+% Frank Mittelbach's and David Carlisle's array.sty patches and improves
+% the standard LaTeX2e array and tabular environments to provide better
+% appearance and additional user controls. As the default LaTeX2e table
+% generation code is lacking to the point of almost being broken with
+% respect to the quality of the end results, all users are strongly
+% advised to use an enhanced (at the very least that provided by array.sty)
+% set of table tools. array.sty is already installed on most systems. The
+% latest version and documentation can be obtained at:
+% http://www.ctan.org/pkg/array
+
+
+% IEEEtran contains the IEEEeqnarray family of commands that can be used to
+% generate multiline equations as well as matrices, tables, etc., of high
+% quality.
+
+
+
+
+% *** SUBFIGURE PACKAGES ***
+%\ifCLASSOPTIONcompsoc
+%  \usepackage[caption=false,font=normalsize,labelfont=sf,textfont=sf]{subfig}
+%\else
+%  \usepackage[caption=false,font=footnotesize]{subfig}
+%\fi
+% subfig.sty, written by Steven Douglas Cochran, is the modern replacement
+% for subfigure.sty, the latter of which is no longer maintained and is
+% incompatible with some LaTeX packages including fixltx2e. However,
+% subfig.sty requires and automatically loads Axel Sommerfeldt's caption.sty
+% which will override IEEEtran.cls' handling of captions and this will result
+% in non-IEEE style figure/table captions. To prevent this problem, be sure
+% and invoke subfig.sty's "caption=false" package option (available since
+% subfig.sty version 1.3, 2005/06/28) as this is will preserve IEEEtran.cls
+% handling of captions.
+% Note that the Computer Society format requires a larger sans serif font
+% than the serif footnote size font used in traditional IEEE formatting
+% and thus the need to invoke different subfig.sty package options depending
+% on whether compsoc mode has been enabled.
+%
+% The latest version and documentation of subfig.sty can be obtained at:
+% http://www.ctan.org/pkg/subfig
+
+
+
+
+% *** FLOAT PACKAGES ***
+%
+%\usepackage{fixltx2e}
+% fixltx2e, the successor to the earlier fix2col.sty, was written by
+% Frank Mittelbach and David Carlisle. This package corrects a few problems
+% in the LaTeX2e kernel, the most notable of which is that in current
+% LaTeX2e releases, the ordering of single and double column floats is not
+% guaranteed to be preserved. Thus, an unpatched LaTeX2e can allow a
+% single column figure to be placed prior to an earlier double column
+% figure.
+% Be aware that LaTeX2e kernels dated 2015 and later have fixltx2e.sty's
+% corrections already built into the system in which case a warning will
+% be issued if an attempt is made to load fixltx2e.sty as it is no longer
+% needed.
+% The latest version and documentation can be found at:
+% http://www.ctan.org/pkg/fixltx2e
+
+
+%\usepackage{stfloats}
+% stfloats.sty was written by Sigitas Tolusis. This package gives LaTeX2e
+% the ability to do double column floats at the bottom of the page as well
+% as the top. (e.g., "\begin{figure*}[!b]" is not normally possible in
+% LaTeX2e). It also provides a command:
+%\fnbelowfloat
+% to enable the placement of footnotes below bottom floats (the standard
+% LaTeX2e kernel puts them above bottom floats). This is an invasive package
+% which rewrites many portions of the LaTeX2e float routines. It may not work
+% with other packages that modify the LaTeX2e float routines. The latest
+% version and documentation can be obtained at:
+% http://www.ctan.org/pkg/stfloats
+% Do not use the stfloats baselinefloat ability as the IEEE does not allow
+% \baselineskip to stretch. Authors submitting work to the IEEE should note
+% that the IEEE rarely uses double column equations and that authors should try
+% to avoid such use. Do not be tempted to use the cuted.sty or midfloat.sty
+% packages (also by Sigitas Tolusis) as the IEEE does not format its papers in
+% such ways.
+% Do not attempt to use stfloats with fixltx2e as they are incompatible.
+% Instead, use Morten Hogholm'a dblfloatfix which combines the features
+% of both fixltx2e and stfloats:
+%
+% \usepackage{dblfloatfix}
+% The latest version can be found at:
+% http://www.ctan.org/pkg/dblfloatfix
+
+
+
+
+%\ifCLASSOPTIONcaptionsoff
+%  \usepackage[nomarkers]{endfloat}
+% \let\MYoriglatexcaption\caption
+% \renewcommand{\caption}[2][\relax]{\MYoriglatexcaption[#2]{#2}}
+%\fi
+% endfloat.sty was written by James Darrell McCauley, Jeff Goldberg and 
+% Axel Sommerfeldt. This package may be useful when used in conjunction with 
+% IEEEtran.cls'  captionsoff option. Some IEEE journals/societies require that
+% submissions have lists of figures/tables at the end of the paper and that
+% figures/tables without any captions are placed on a page by themselves at
+% the end of the document. If needed, the draftcls IEEEtran class option or
+% \CLASSINPUTbaselinestretch interface can be used to increase the line
+% spacing as well. Be sure and use the nomarkers option of endfloat to
+% prevent endfloat from "marking" where the figures would have been placed
+% in the text. The two hack lines of code above are a slight modification of
+% that suggested by in the endfloat docs (section 8.4.1) to ensure that
+% the full captions always appear in the list of figures/tables - even if
+% the user used the short optional argument of \caption[]{}.
+% IEEE papers do not typically make use of \caption[]'s optional argument,
+% so this should not be an issue. A similar trick can be used to disable
+% captions of packages such as subfig.sty that lack options to turn off
+% the subcaptions:
+% For subfig.sty:
+% \let\MYorigsubfloat\subfloat
+% \renewcommand{\subfloat}[2][\relax]{\MYorigsubfloat[]{#2}}
+% However, the above trick will not work if both optional arguments of
+% the \subfloat command are used. Furthermore, there needs to be a
+% description of each subfigure *somewhere* and endfloat does not add
+% subfigure captions to its list of figures. Thus, the best approach is to
+% avoid the use of subfigure captions (many IEEE journals avoid them anyway)
+% and instead reference/explain all the subfigures within the main caption.
+% The latest version of endfloat.sty and its documentation can obtained at:
+% http://www.ctan.org/pkg/endfloat
+%
+% The IEEEtran \ifCLASSOPTIONcaptionsoff conditional can also be used
+% later in the document, say, to conditionally put the References on a 
+% page by themselves.
+
+
+
+
+% *** PDF, URL AND HYPERLINK PACKAGES ***
+%
+%\usepackage{url}
+% url.sty was written by Donald Arseneau. It provides better support for
+% handling and breaking URLs. url.sty is already installed on most LaTeX
+% systems. The latest version and documentation can be obtained at:
+% http://www.ctan.org/pkg/url
+% Basically, \url{my_url_here}.
+
+
+
+
+% *** Do not adjust lengths that control margins, column widths, etc. ***
+% *** Do not use packages that alter fonts (such as pslatex).         ***
+% There should be no need to do such things with IEEEtran.cls V1.6 and later.
+% (Unless specifically asked to do so by the journal or conference you plan
+% to submit to, of course. )
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{hyperref}
+\usepackage{multirow}
+\usepackage{amsmath}
+\graphicspath{{../figures/}{../pictures/}{../images/}{./}}
+
+% correct bad hyphenation here
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+% \teaser{
+%   \centering
+%     \includegraphics[width=\columnwidth]{fig1.png}
+%     \caption{A telexistence drone is controlled by a user with our 
+%  motion mapping mechanism and provides immersive viewing experience to the user in 
+%  real time. As the user rotates his head, the drone rotates accordingly 
+%  and transmits the recorded frames of an outdoor scene back to the HMD.}
+%  \label{fig:teaser}
+% }
+
+
+
+\begin{document}
+%
+% paper title
+% Titles are generally capitalized except for words such as a, an, and, as,
+% at, but, by, for, in, nor, of, on, or, the, to and up, which are usually
+% not capitalized unless they are the first or last word of the title.
+% Linebreaks \\ can be used within to get better formatting as desired.
+% Do not put math or special symbols in the title.
+\title{Virtual Reality Aided Drone Control for 3D reconstruction}
+%
+%
+% author names and IEEE memberships
+% note positions of commas and nonbreaking spaces ( ~ ) LaTeX will not break
+% a structure at a ~ so this keeps an author's name from being broken across
+% two lines.
+% use \thanks{} to gain access to the first footnote area
+% a separate \thanks must be used for each paragraph as LaTeX2e's \thanks
+% was not built to handle multiple paragraphs
+%
+
+
+\author{Michael~Shell,~\IEEEmembership{Member,~IEEE,}
+        John~Doe,~\IEEEmembership{Fellow,~OSA,}
+        and~Jane~Doe,~\IEEEmembership{Life~Fellow,~IEEE}% <-this % stops a space
+\thanks{M. Shell was with the Department
+of Electrical and Computer Engineering, Georgia Institute of Technology, Atlanta,
+GA, 30332 USA e-mail: (see http://www.michaelshell.org/contact.html).}% <-this % stops a space
+\thanks{J. Doe and J. Doe are with Anonymous University.}% <-this % stops a space
+\thanks{Manuscript received April 19, 2005; revised August 26, 2015.}}
+
+% note the % following the last \IEEEmembership and also \thanks - 
+% these prevent an unwanted space from occurring between the last author name
+% and the end of the author line. i.e., if you had this:
+% 
+% \author{....lastname \thanks{...} \thanks{...} }
+%                     ^------------^------------^----Do not want these spaces!
+%
+% a space would be appended to the last name and could cause every name on that
+% line to be shifted left slightly. This is one of those "LaTeX things". For
+% instance, "\textbf{A} \textbf{B}" will typeset as "A B" not "AB". To get
+% "AB" then you have to do: "\textbf{A}\textbf{B}"
+% \thanks is no different in this regard, so shield the last } of each \thanks
+% that ends a line with a % and do not let a space in before the next \thanks.
+% Spaces after \IEEEmembership other than the last one are OK (and needed) as
+% you are supposed to have spaces between the names. For what it is worth,
+% this is a minor point as most people would not even notice if the said evil
+% space somehow managed to creep in.
+
+
+
+% The paper headers
+\markboth{Journal of \LaTeX\ Class Files,~Vol.~14, No.~8, August~2015}%
+{Shell \MakeLowercase{\textit{et al.}}: Bare Demo of IEEEtran.cls for IEEE Journals}
+% The only time the second header will appear is for the odd numbered pages
+% after the title page when using the twoside option.
+% 
+% *** Note that you probably will NOT want to include the author's ***
+% *** name in the headers of peer review papers.                   ***
+% You can use \ifCLASSOPTIONpeerreview for conditional compilation here if
+% you desire.
+
+
+
+
+% If you want to put a publisher's ID mark on the page you can do it like
+% this:
+%\IEEEpubid{0000--0000/00\$00.00~\copyright~2015 IEEE}
+% Remember, if you use this you must call \IEEEpubidadjcol in the second
+% column for its text to clear the IEEEpubid mark.
+
+
+
+% use for special paper notices
+%\IEEEspecialpapernotice{(Invited Paper)}
+
+
+
+
+% make the title area
+\maketitle
+
+% As a general rule, do not put math, special symbols or citations
+% in the abstract or keywords.
+\begin{abstract}
+  % Recently, a new form of telexistence is achieved by recording images with 
+  % cameras on an unmanned aerial vehicle (UAV) and displaying them to the 
+  % user via a head mounted display (HMD).
+  % While most works focus on displaying 2D images in the HMD, few of them 
+  % involve 3D structure of the environment. Here come two problems: One 
+  % is how to provide a free and natural mechanism for the user to control the viewpoint 
+  % and watch a scene, and another is how to get better reconstruction result with an HMD-controlled UAV.
+  % %A key problem here is how to provide a free and natural 
+  % %mechanism for the user to control the viewpoint and watch a scene. 
+  % %To this end, we propose an improved rate-control method with an adaptive 
+  % %origin update (AOU) scheme.
+  % In this paper, we build a telexistence drone system that is controlled 
+  % by an HMD and can perform incremental real-time dense reconstruction. 
+  % Three contributions are proposed to solve the above issues.
+  % Firstly, we propose an improved rate-control method with an adaptive origin
+  % update (AOU) scheme which handles the self-centering problem without the aid 
+  % of any auxiliary equipment and provides a free and natural mechanism for the 
+  % user to control the viewpoint and watch a scene. 
+  % Secondly, we present a full 6-DOF viewpoint control method to manipulate the motion of 
+  % a stereo camera, and we build a real prototype to realize this by utilizing a 
+  % pan-tilt-zoom (PTZ) which not only provides 2-DOF to the camera but also 
+  % compensates the jittering motion of the UAV to record more stable image streams.
+  % Thirdly, the capability of real-time 3D reconstruction enables us to render the 
+  % RGB images blended with raycasted model surface in the HMD 
+  % and take it as navigation aids for the user.
+  % We validate the effectiveness of our motion mechanism by the user study in the simuluation
+  % system. What’s more, with the reconstruction feedback displayed in the HMD, we 
+  % achieve better reconstruction results in terms of completeness and accuracy compared 
+  % with joystick-based control in an easy and efficient way in both 
+  % simulation system and real UAV system.
+  Traditional outdoor large scene 3D reconstruction mission by drone usually 
+  consists of two steps: image sequence collection and offline post-processing. 
+  Here come two problems: One is the uncertainty of whether all parts of the target 
+  object is covered, and another is the tedious post-processing time.
+  %We address the problem of real-time large scene reconstruction by drone. 
+  Inspired by telexistence, a recent concept of virtual reality which conveys 
+  remote scenes captured by an unmanned aerial vehicle (UAV) to the user via images 
+  shown in a head mounted display (HMD), we build a telexistence drone system that 
+  is controlled by an HMD and can perform incremental real-time dense reconstruction. 
+  Two contributions are proposed to solve the above issues. 
+  Firstly, based on the popular depth fusion surface reconstruction framework, 
+  we combine it with a visual-inertial odometry estimator which integrates the 
+  inertial measurement unit (IMU) and allows for a robust camera tracking as well 
+  as high-accuracy online 3D scan.
+  %task of real-time 3D reconstruction and model generation. 
+  Secondly, the capability of real-time 3D reconstruction enables 
+  % us to render the 
+  % RGB images blended with raycasted model surface in the HMD and take it as navigation 
+  % aids for the user.
+  a new rendering technique that can visualize the reconstructed region of the target 
+  as navigation guidance in the HMD and lead to a higher level of scan completeness.
+  % in order to allow users to view the reconstruction results and operate the 
+  % drone in real time, we propose a rendering technique based on mapping reconstructed 
+  % mesh to the observer's perspective, which can help the operator to intuitively 
+  % determine the location of the void in the model. 
+  We introduce an HMD-based six degrees-of-freedom (DOF) drone control interface 
+  as several previous telexistence systems have done. 
+  % to control the 
+  % platform and drone, control gimbal through the head movement, and render the 
+  % model projection and RGB image overlay to the head display, which can make users 
+  % % have a more immersive experience. 
+  % A large number of user experiments show that 
+  % our system can make people better operate drone to complete the task of real-time 
+  % 3D reconstruction.
+  The experiments in simulation system and our real prototype demonstrate an improved 
+  quality of 3D model using our proposed technique.  
+
+\end{abstract}
+
+% Note that keywords are not normally used for peerreview papers.
+\begin{IEEEkeywords}
+IEEE, IEEEtran, journal, \LaTeX, paper, template.
+\end{IEEEkeywords}
+
+
+
+
+
+
+% For peer review papers, you can put extra information on the cover
+% page as needed:
+% \ifCLASSOPTIONpeerreview
+% \begin{center} \bfseries EDICS Category: 3-BBND \end{center}
+% \fi
+%
+% For peerreview papers, this IEEEtran command inserts a page break and
+% creates the second title. It will be ignored for other modes.
+\IEEEpeerreviewmaketitle
+
+
+
+\section{Introduction}
+% The very first letter is a 2 line initial drop letter followed
+% by the rest of the first word in caps.
+% 
+% form to use if the first word consists of a single letter:
+% \IEEEPARstart{A}{demo} file is ....
+% 
+% form to use if you need the single drop letter followed by
+% normal text (unknown if ever used by the IEEE):
+% \IEEEPARstart{A}{}demo file is ....
+% 
+% Some journals put the first two words in caps:
+% \IEEEPARstart{T}{his demo} file is ....
+% 
+% Here we have the typical use of a "T" for an initial drop letter
+% and "HIS" in caps to complete the first word.
+% \IEEEPARstart{T}{his} demo file is intended to serve as a ``starter file''
+% for IEEE journal papers produced under \LaTeX\ using
+% IEEEtran.cls version 1.8b and later.
+% % You must have at least 2 lines in the paragraph with the drop letter
+% % (should never be an issue)
+% I wish you the best of success.
+
+% \hfill mds
+ 
+% \hfill August 26, 2015
+
+% \subsection{Subsection Heading Here}
+% Subsection text here.
+
+% % needed in second column of first page if using \IEEEpubid
+% %\IEEEpubidadjcol
+
+% \subsubsection{Subsubsection Heading Here}
+% Subsubsection text here.
+
+
+% An example of a floating figure using the graphicx package.
+% Note that \label must occur AFTER (or within) \caption.
+% For figures, \caption should occur after the \includegraphics.
+% Note that IEEEtran v1.7 and later has special internal code that
+% is designed to preserve the operation of \label within \caption
+% even when the captionsoff option is in effect. However, because
+% of issues like this, it may be the safest practice to put all your
+% \label just after \caption rather than within \caption{}.
+%
+% Reminder: the "draftcls" or "draftclsnofoot", not "draft", class
+% option should be used if it is desired that the figures are to be
+% displayed while in draft mode.
+%
+%\begin{figure}[!t]
+%\centering
+%\includegraphics[width=2.5in]{myfigure}
+% where an .eps filename suffix will be assumed under latex, 
+% and a .pdf suffix will be assumed for pdflatex; or what has been declared
+% via \DeclareGraphicsExtensions.
+%\caption{Simulation results for the network.}
+%\label{fig_sim}
+%\end{figure}
+
+% Note that the IEEE typically puts floats only at the top, even when this
+% results in a large percentage of a column being occupied by floats.
+
+
+% An example of a double column floating figure using two subfigures.
+% (The subfig.sty package must be loaded for this to work.)
+% The subfigure \label commands are set within each subfloat command,
+% and the \label for the overall figure must come after \caption.
+% \hfil is used as a separator to get equal spacing.
+% Watch out that the combined width of all the subfigures on a 
+% line do not exceed the text width or a line break will occur.
+%
+%\begin{figure*}[!t]
+%\centering
+%\subfloat[Case I]{\includegraphics[width=2.5in]{box}%
+%\label{fig_first_case}}
+%\hfil
+%\subfloat[Case II]{\includegraphics[width=2.5in]{box}%
+%\label{fig_second_case}}
+%\caption{Simulation results for the network.}
+%\label{fig_sim}
+%\end{figure*}
+%
+% Note that often IEEE papers with subfigures do not employ subfigure
+% captions (using the optional argument to \subfloat[]), but instead will
+% reference/describe all of them (a), (b), etc., within the main caption.
+% Be aware that for subfig.sty to generate the (a), (b), etc., subfigure
+% labels, the optional argument to \subfloat must be present. If a
+% subcaption is not desired, just leave its contents blank,
+% e.g., \subfloat[].
+
+
+% An example of a floating table. Note that, for IEEE style tables, the
+% \caption command should come BEFORE the table and, given that table
+% captions serve much like titles, are usually capitalized except for words
+% such as a, an, and, as, at, but, by, for, in, nor, of, on, or, the, to
+% and up, which are usually not capitalized unless they are the first or
+% last word of the caption. Table text will default to \footnotesize as
+% the IEEE normally uses this smaller font for tables.
+% The \label must come after \caption as always.
+%
+%\begin{table}[!t]
+%% increase table row spacing, adjust to taste
+%\renewcommand{\arraystretch}{1.3}
+% if using array.sty, it might be a good idea to tweak the value of
+% \extrarowheight as needed to properly center the text within the cells
+%\caption{An Example of a Table}
+%\label{table_example}
+%\centering
+%% Some packages, such as MDW tools, offer better commands for making tables
+%% than the plain LaTeX2e tabular which is used here.
+%\begin{tabular}{|c||c|}
+%\hline
+%One & Two\\
+%\hline
+%Three & Four\\
+%\hline
+%\end{tabular}
+%\end{table}
+
+
+% Note that the IEEE does not put floats in the very first column
+% - or typically anywhere on the first page for that matter. Also,
+% in-text middle ("here") positioning is typically not used, but it
+% is allowed and encouraged for Computer Society conferences (but
+% not Computer Society journals). Most IEEE journals/conferences use
+% top floats exclusively. 
+% Note that, LaTeX2e, unlike IEEE journals/conferences, places
+% footnotes above bottom floats. This can be corrected via the
+% \fnbelowfloat command of the stfloats package.
+
+
+In recent years, 3D reconstruction has made great progress. 
+In daily life, 3D reconstruction technology has brought great 
+convenience to the development of human society. For example, 
+monitoring the deformation of buildings in infrastructure industry\cite{Wang2012COSMO}
+can effectively reduce the losses caused by building collapse. 
+By collecting the three-dimensional structural information of the building, 
+it can help repair the damage of historical relics in different degrees \cite{KerstenPotential}.
+
+At present, most three-dimensional reconstruction is to collect 
+information from the target object on the spot by the operator, 
+but this method of collecting information usually requires the 
+operator to have sufficient experience to ensure the one-time 
+success of three-dimensional reconstruction. Otherwise, when it is 
+found that the three-dimensional reconstruction of the target object 
+is not successful, it is necessary to return to the scene again for collection.
+
+\begin{figure}[t]
+\centering % avoid the use of \begin{center}...\end{center} and use \centering instead (more compact)
+  \includegraphics[width=0.45\columnwidth]{image0000.png}
+  \includegraphics[width=0.45\columnwidth]{image0001.png}
+  \includegraphics[width=0.45\columnwidth]{image0002.png}
+  \includegraphics[width=0.45\columnwidth]{image0003.png}
+    \caption{
+    %   A telexistence drone is controlled by a user with our 
+    % motion mapping mechanism and provides immersive viewing experience to the user in 
+    % real time. As the user rotates his head, the drone rotates accordingly 
+    % and transmits the recorded frames of an outdoor scene back to the HMD.
+    A telexistence drone is controlled by a user to perform online 
+    3D scanning. 
+  % As the user rotates his head, the drone rotates accordingly 
+  % and transmits the recorded frames of an outdoor scene back to the HMD.
+  With the overlaid reconstructed geometry as navigation guidance, 
+  the user could perceive scanning progress and obtain a more complete model surface.
+  }
+    \label{fig:teaser}
+\end{figure}
+
+In order to provide more convenience for users, the target building can be 
+reconstructed three-dimensionally without going out. Telexistence\cite{734972} enables people to interact with the 
+target environment remotely. Unlike ordinary VR 
+technology, Telexistence system enables users to have the feeling of being 
+in person and can operate remotely at home, head mounted display (HMD) \cite{BUTTERWORTH19923DM}can be used 
+to view and operate remote environment\cite{Pittman:2014:EHT:2557500.2557527}, and feed back 3D reconstruction results \cite{7892326}to HMD.
+
+Unmanned aerial vehicle is a good 3D reconstruction tool, which can move freely 
+in the air and avoid harsh ground conditions\cite{PMID:29364873}, such as 3D reconstruction of higher 
+buildings and bridge structures. Driven by various large outdoor data sets collected 
+by UAV, reconstruction algorithms based on multi-view geometry\cite{CGV-052} 
+have been continuously improved. From the point of view of improving multi-view 
+geometry algorithm, this reconstruction algorithm usually improves the reconstruction 
+quality. Generally, people plan more intensive flight routes, use more camera modules 
+with larger viewing angles\cite{Ying2004Can}, and manually compensate for complex areas. During manual 
+operation, we usually do not know the result of real-time reconstruction, so we need 
+to take photos according to experience and try to make the angle as large as possible 
+so that the final generated model is accurate. It is very important for operators to 
+obtain timely feedback on whether the images collected by unmanned aerial vehicles meet 
+the reconstruction requirements.
+
+We have made two contributions to this. First,in order to improve the integrity of the target object, the 3D 
+reconstruction function enables a new rendering technology, the 3D reconstruction results are 
+fed back to the RGB image rendering\cite{Smith:1978:CGT:965139.807361} of HMD in real time and the unreconstructed area will not be mixed 
+with other colors, so the user can be guided to control the UAV to fill the loopholes displayed in HMD\cite{8797791} 
+in real time. Then, in general 3D reconstruction, tracking may fail or drift due to inaccurate camera displacement estimation.
+In order to improve the accuracy of 3D reconstruction, a vision-inertial odometer 
+estimator is introduced into the popular depth fusion surface reconstruction framework, 
+and an inertial measurement unit (IMU) is integrated into the estimator, so the reconstruction 
+error can be compensated when 3D reconstruction is performed on the target object. 
+Our experiments show that compared with traditional 3D reconstruction methods, this 
+strategy greatly improves the integrity and accuracy  of 3D reconstruction.
+
+
+
+%%%%% zd %%%%%
+% In recent years, 3D reconstruction has achieved great success. 
+% Driven by a variety of large-scale outdoor data sets collected by drone, 
+% the reconstruction algorithm based on multi view geometry is constantly 
+% improved and improved. This kind of reconstruction algorithm usually improves 
+% the quality of reconstruction from the perspective of improving the multi view 
+% geometry algorithm. As a Part of the 3D reconstruction system, flying robot 
+% that can move freely through the air and circumvent poor ground conditions such 
+% as uneven roads and non-graded areas robot system controlled manually or 
+% automatically, UAV can improve the quality of 3D reconstruction in many ways. 
+% In general, people plan more dense flight paths, use more camera modules with 
+% more viewing angles, and manually make up for complex areas. 
+% This creates a problem with manual control, where we usually don't know the 
+% result of a real-time reconstruction, and we need to take photos based on 
+% experience and try to make the angles as rich as possible so that the final 
+% generated model is complete.Therefore, it is very important for operators to 
+% get timely feedback on whether the images collected by the UAV meet the needs 
+% of reconstruction.
+
+% Compared with a tedious 2D display system, a head mounted display (HMD) can 
+% display in the form of 3D [4, 38] , which is more effective to increase users’ 
+% sense of immersion. While exitsing telexistence systems are concerned about 
+% improving the users’ quality of experience [1], few of them extend to perceive 
+% the 3D structure of the surroundings. Thanks to the recent progress in the image 
+% based 3D reconstruction, integrated with UAV, acquiring the 3D model of the scene 
+% in real-time during flight gradually becomes possible. With onboard stereo camera, 
+% we can get aerial images constantly and build 3D maps from stereo sequences [12]
+
+%%%%% zd %%%%%
+
+% \IEEEPARstart{T}{elexistence} is a new concept of virtual reality (VR), which allows humans 
+% to interact with remote environments ratdher than their current location in 
+% real 3D circumstance \cite{734972,7383142}. Different from common VR technologies 
+% which provide immersive experiences to customers in computer-synthesized worlds, 
+% telexistence system is more likely to be used in the real world. 
+% As it offers a real-time sense of presence to users, telexistence system 
+% is applicable to various fields, including commercial, scientific and other 
+% applications \cite{Hayakawa:2015:TDD:2735711.2735816,Kasahara:2015:JHI:2821592.2821608}. 
+% In recent years, robots are developed for exploring dull, dangerous and unreached 
+% regions for humans \cite{PMID:29364873,7587429}. Benefiting 
+% from having sufficient freedom and the possibilities for monitoring extensive 
+% space like sky and mountain, an unmanned aerial vehicle (UAV) shows superior 
+% ability compared with other distal robots especially in remote tasks. In view of 
+% this, researchers are more interested in developing a UAV telexistence system by 
+% employing different natural user interfaces, like gesture and speech, with a 3D 
+% display device \cite{Higuchi:2013:FHH:2468356.2468721}.
+
+
+
+% Various methods for enhancing immersive experience in a telexistence system 
+% were proposed in previous studies \cite{7892318,1512014}. 
+% Most of these works were concerned about two issues: immersive display and 
+% natural interface. Compared with a tedious 2D display system, a head mounted 
+% display (HMD) can display in the form of 3D \cite{7892326,SHIBATA200257} , 
+% which is more effective to increase users’ sense of immersion. 
+% While exitsing telexistence systems are concerned about improving the users' 
+% quality of experience \cite{8574612}, few of them extend to perceive
+% the 3D structure of the surroundings. Thanks to the recent progress in the image 
+% based 3D reconstruction, integrated with UAV, acquiring the 3D model of the 
+% scene in real-time during flight gradually becomes possible. With onboard stereo
+% camera, we can get aerial images constantly and build 3D maps from stereo 
+% sequences \cite{5940405}.
+
+% %Further more, HMD would 
+% %provide hands-free usage in reality compared with the conventional 
+% %keyboard and mouse 
+% %interfaces. %, which is a challenging work for coordinating operations of user’s brain and hands. 
+% In a common way, an HMD is often used as a 3D display hardware but few 
+% works employ it as a primary control device in a telexistence 
+% system \cite{6261311}, let alone use it to manipulate a UAV for 3D reconstruction 
+% task. At present, a joystick-based user interface is commonly used in a UAV 
+% system. For safety, manipulators using joysticks should be professionally 
+% trained in advance. On the other hand, an HMD can directly convey users' poses 
+% to the UAV~\cite{Kasahara:2015:JHI:2821592.2821608, SANNA2013179}. So we 
+% follow these works to use a UAV in a telexistence system to solve the two 
+% mentioned issues.
+
+% It is not trivial to design and implement an interface to 
+% intuitively and naturally manipulate a UAV to perform 3D reconstruction task 
+% by an HMD. We propose three contributions on this. 
+% %An ideal interface should be both intuitive and natural. Meanwhile, 
+% %sufficient and 
+% %hands-free motion mapping would allow enough motion in 
+% %the real world to create a 
+% %sense of presence in the virtual world \cite{Wells96thevirtual}. 
+% Firstly, since the movement space of users is always limited, a synchronous 
+% (position-control) mapping strategy \cite{Poupyrev:1996:GIT:237091.237102}, 
+% which typically conveys the displacement of the manipulator to the virtual 
+% displacement, confines the movement range. In order to provide unlimited 
+% space for users, we adopt a translation-to-velocity (rate-control) strategy 
+% by an adaptive origin update (AOU) scheme to dynamically change the 
+% coordinate system of the user, which makes it easier and more precise to 
+% control the hovering and flying state of the UAV. Secondly, since a traditional 
+% UAV cannot provide full 6-DOF to the cameras on it, previous techniques do 
+% not consider the controlling of rotations on pitch and roll directions 
+% \cite{Kasahara:2015:JHI:2821592.2821608, SANNA2013179}. Different from them, 
+% we work on the full 6-DOF and develop a prototype by adding a pan-tilt-zoom (PTZ) 
+% on the UAV to freely rotate the cameras on the pitch and roll directions and 
+% thus provide $360^{\circ}$ viewing experience. Thirdly, our telexistence system
+% can present the remote environment to user equipped with HMD and perform real-time
+% 3D reconstruction in parallel. Based on the recent hash-based technique for 
+% large-scale fusion \cite{Kasahara:2015:JHI:2821592.2821608}, our system outputs 
+% dense, large-scale, and outdoor 3D reconstruction. We render RGB images 
+% blended with raycasted surfaces which is converted to HSV color space from 
+% reconstruted models in the HMD. For areas where are not reconstructed completely, 
+% they will be rendered only as raw RGB images. With this feedback, users will find 
+% the unreconstructed area and actively drive the UAV to fill the holes shown in HMD. 
+% Our experiment shows that compared with traditional joystick 
+% control method, this strategy greately improves the integrity of the model.
+
+
+
+\section{related work}
+Aiming at an immersive telexistence system, this paper mainly focuses on how 
+to utilize an HMD to control the motion of cameras on a UAV and get better 3D 
+reconstruction result. We will summarize the previous works on these two topics.
+
+\textbf{Telexistence:}
+Brain-computer interactions (BCIs) can be used to control UAVs. 
+LaFleur et al. \cite{1741-2552-10-4-046003} used the technique of motor 
+imagery-based brain-computer interface to control a 
+quadcopter in the real 3D space. 
+Futhermore, eye movements and mental concentration are combined together to 
+control a quadcopter in three-dimensional space \cite{KIM201482}. 
+Besides the eye movement, eye blink could also be exploited in controlling 
+of an UAV \cite{7846875}. In ideal cases, these techniques can get good 
+telexistence experience with an immersive display of the scene. 
+However, due to the low accuracy of the brain signals, these 
+techniques are difficult to be applied in real systems.
+
+Body-machine interfaces (BoMIs) have also been used to control UAVs. 
+Sanna et al. \cite{SANNA2013179} employed a Kinect to estimate the 
+body motion of a user 
+and used the motion to control the flying of a UAV. 
+Pfeil et al. \cite{Pfeil:2013:EGM:2449396.2449429} defined 
+different controlling mechanisms based on the 3D gestures of the upper body of 
+a user. The mechanisms are well compared by a sophisticated study. 
+Park et al. \cite{7625774} also 
+utilized body motion to perform the control. However, they made use of a motion capture 
+system to acquire the body motion and a haptic glove for hand manipulation. Recently, 
+Fernández et al. \cite{7502665} also focused on this topic and they integrated speech, body position, 
+hand gesture and visual marker interactions together to obtain a natural and free control 
+of UAVs. However, all the aforementioned techniques only perform the control but not 
+provide telexistence experience to users. What’s more, the robustness of the controlling 
+is not very satisfactory as the human motion estimation is not that reliable.
+
+In order for telexistence, an HMD is usually employed to provide immersive first-person 
+viewing experience to users. And it can also help control the UAVs. Some works use 
+not only the HMD but also some other ways in controlling. 
+Cherpilled et al. \cite{DBLP:journals/corr/CherpillodMF17} developed a 
+Birdly interaction system to enhance the immersive sense of users in VR. The user laid 
+on the platform and took control of the flight of UAV by changing their gestures. The 
+upward or downward of hand controlled the pitch of UAV while the gesture of tilting the 
+two hands in opposite direction represented the altering of the roll angle. Furthermore, 
+in order to adapt their method for fixed-wing and hovering UAVs system, the authors 
+proposed specific mapping strategies between gesture and control commands. Since the 
+movement of a user’s head could control the camera gimbal of the drone and the user has to 
+lay on the platform, the user might feel tired due to keeping on lifting his head when 
+UAV moves forward. In \cite{8304759}, a soft exoskeleton teleoperation system is introduced for a 
+human-drone interface. By using a sensor-based soft exoskeleton, the system could map 
+movements of torso to the flight of a UAV. A simple FlyJacket equipment is armed with 
+the user’s arm for teleoperation with a UAV. The results of user study showed that 
+participants felt comfortable with less fatigue. In \cite{mci/Herrmann2018}, a mixed interface which contains 
+gesture and speech is proposed. In the system, the gesture-based interface is the main 
+interface. When no gesture command is given, then a speech command is executed. The 
+experimental comparisons reveal that users have to make a choice between an intuitive 
+interface and an efficient interface due to the fact that the two interfaces are contradictory 
+to each other. Besides the methods based on deterministic rules, data-driven technique 
+was also proposed to utilize the motion of upper body to achieve 
+telexistence \cite{Miehlbradt7913}. These 
+techniques may afford users good experience of telexistence, 
+but it requires complex 
+equipment to build the system.
+
+Some previous works along with this work focus on using the HMD to the control 
+of a UAV in the telexistence scenario. K. Higuchi 
+and J. Rekimoto \cite{Higuchi:2013:FHH:2468356.2468721} proposed 
+a ‘Flying Head’ 
+control mechanism for UAV. Their system utilized an HMD to synchronize the motion between 
+the manipulator and UAV. Movement of UAV is similar to the body motion of the manipulator. 
+There are two merits of this mechanism: The first one is that the UAV position and camera 
+orientation are both determined by the manipulator. The second one is that the UAV moving 
+distance could be observed by manipulators so that the control area of users could match 
+that of the UAV. However, due to this direct mapping mechanism, the moving space of UAV is 
+limited by that of the manipulator. 
+In \cite{Pittman:2014:EHT:2557500.2557527}, the authors investigated robot navigation with 
+HMD tracking. By comparing five mapping mechanisms of head moving, the results of user study 
+demonstrated the head rotation based interaction technique was preferred by users among the 
+non-traditional interaction techniques and alleviated some drawbacks of HMD-based robot 
+navigation mechanism. As the description of the head translation mechanism, when users go 
+back to their original position, the UAV will hover. But according to our experiment, when 
+the users are equipped with HMD, it is very difficult for them to go back to their original 
+position precisely. Then they have to hover the UAV depending on their intuitive feeling 
+which decreases the immersive sense. A blueprint of telexistence drone was described for 
+immersive aerial sports experience in \cite{Hayakawa:2015:TDD:2735711.2735816}. The synchronization human-drone interface was 
+devised by means of equipping with an HMD. Then human could experience some extreme sports 
+by the designed Hexacoptor.
+
+\textbf{3D reconstruction:}
+Traditional UAV based 3D reconstruction methods employ UAV to fly and take pictures 
+according to a pre-planned path and viewpoints, followed by a off-line post-process 
+reconstruction pipeline which consists of Structure from Motion (SfM) 
+\cite{Harltey2003Multiple} and Multi View Stereo (MVS) \cite{CGV-052}. Recently, 
+\cite{10.1007/978-3-319-10605-2_54} demonstrated large-scale semi-dense 
+reconstruction using only a monocular camera. In 2011, using a consumer depth 
+sensor and commodity graphics hardware, KinectFusion \cite{6162880} employed 
+truncated signed distance function (TSDF) representation and fused 
+all of the depth data into a single global implicit surface model of the observerd 
+scene in real-time, but suffered from scalability issue. This shortcoming has been 
+overcome by scalable approaches that use either a voxel hierarchy 
+\cite{Chen:2013:SRV:2461912.2461940} or voxel block hashing 
+\cite{niener2013real-time} exploiting the sparsity in the TSDF representation and
+creating more efficient spatial subdivision strategies. Dai et al. 
+\cite{dai2017bundlefusion} proposed a parallelizable pose optimization framework, 
+which employs correspondences based on sparse features and dense geometric and 
+photometric matching, resulting in a robust camera pose estimation as well as 
+globally consistent 3D Reconstruction.
+
+
+
+\section{Methods}
+
+\begin{figure}[ht]
+\centering % avoid the use of \begin{center}...\end{center} and use \centering instead (more compact)
+    \includegraphics[width=\columnwidth]{system.png}
+    \caption{Our HMD-based UAV telexistence system.}
+    \label{fig:SystemOverview}
+\end{figure}
+
+\subsection{System Overview}
+\autoref{fig:SystemOverview} gives the whole architecture of our VR aided 
+UAV 3D reconstruction system.
+% The entire architecture of our HMD-based telexistence drone system is shown 
+% in \autoref{fig:SystemOverview}. 
+% First, we develop a customized quadcopter 
+% which consists of a capture and a transmission module. 
+A customized quadcopter equipped with a stereo camera is firstly developed for 
+image capture and data transmission.
+% A stereo camera is utilized to capture live-streaming 3D video content. 
+% The PTZ used to carry the stereo camera gives 2-DOF (pitch and roll) and the 
+% rest 4-DOF (three translations and the yaw rotation) are given by the UAV. 
+% So we have the full 6-DOF to achieve any desired viewpoint in telexistence.
+The stereo sequences captured by the stereo camera are transfered to our ground station, 
+which will then perform real-time 3D reconstruction and display the images in the HMD. 
+Here we render not only the raw RGB images in the HMD, but also an overlay of the reconstructed 
+object geometry.
+The user wearing an HMD could view the remote scenes and perceive the reconstruction progress 
+with the our visualization technique at the same time. Thus he/she is able to actively drive  
+the UAV to scan the unreconstructed regions for a high quality of 3D model.
+We do not employ the traditional joystick for the control of the UAV. Instead we directly use 
+the HMD as our control device, which means that the motion of the user is mapped to the controlling 
+signals of the UAV, as is demonstrated in \cite{8797791}.
+% Stereo images are transfered from UAV to the ground station via WiFi connection.
+% Our HMD is used to display the received images and track the poses of the 
+% user’s head. The ground station performs our novel motion mapping mechanism 
+% to transform actions of the user to the PTZ camera's pose and meanwhile 
+% reconstruct the surroundings in real-time. Controlling signals are transmitted 
+% to the UAV based on MAVLink protocol via a digital video downlink.  
+%The serial port instructions, which encode the controlling signals, are 
+%transmitted to the UAV via MAVLink protocol also in real time. 
+
+% We illustrate the motion mapping technique in \autoref{sec:mapping} 
+% which includes basic mapping technique mechanism, our AOU scheme and our full
+% viewpoint control. 
+% Discussion on the 3D reconstruction method is presented in \autoref{sec:reconstruction}.
+We illustrate our 3D reconstruction method in \autoref{subsec:reconstruction}.
+Discussion on the rendering technique is presented in \autoref{sec:visulization},
+and \autoref{subsec:mapping} is a brief introduction of our motion mapping method.
+
+\subsection{3D reconstruction}
+\label{subsec:reconstruction}
+While existing telexistence systems focus on enhancing immersive experience for the user, 
+few of them extend to perceive the 3D structures of the surroundings. 
+Although recent depth-fusion-based 3D scanning methods demonstrate compelling results 
+in indoor environment, it's still a challenge to realize an ourdoor mapping 
+solution preserving the advantages of real-time rates, scalability, robust 
+camera tracking and global model consistency.
+The main constraint is that the commonly used depth-based camera pose tracker 
+is not applicable in outdoor scenes due to the noise associated with depth 
+map. To this end, we involve a robust visual-inertial pose estimator and combine it 
+with the current depth fusion framework. The pipeline of our reconstruction system is 
+composed of depth estimation, camera pose estimation and depth fusion. As we employ a 
+depth sensor which directly outputs depth stream, we only describe the latter two 
+steps.
+
+
+
+\subsubsection{Camera Pose Estimation}
+Our simulation system provides ground-truth depth maps which can be 
+applied in depth-based camera tracker. Firstly, we compute surface prediction 
+by raycasting the reconstructed model in the current camera pose.
+Once a new input frame comes, it is aligned with the extracted surface 
+using an point-plane variant iterative closest point (ICP) algorithm with 
+projective data association \cite{CHEN1992145}, which outputs the 6-DOF camera pose.
+Based on the assumption that the relative orientation between the two input surfaces 
+is small, we approximate the nonlinear point-plane ICP optimization problem with a 
+linear least-squares one that can be efficiently solved using Singular Value 
+Decomposition \cite{article} and implement it on GPU using a parallel reduction.
+
+%With scale comes the need for a more robust camera tracking method with less pose drift and estimation errors. 
+The prevalent ICP-based tracker, which employs frame-to-frame
+(frame-to-model) alignment, makes tracking extremely brittle and does not scale to large scenes. 
+This is a key challenging that it determines whether the camera pose is loop
+closured and the model is globally consistent if our telexistence users revisit previously 
+scanned areas. Based on the above considerations, we employed different reconstruction method 
+on simulation system and real prototype.
+As for the real outdoor UAV 3D reconstruction system,  
+% Since the magnitude of noise associated with depth in real outdoor environment 
+% is too large that the depth-based tracker cannot be adopted, 
+we use VINS-Mono
+\cite{qin2017vins}, a visual-inertial odometry to estimate camera motion. 
+\cite{qin2017vins} is a real-time simultaneous localization and mapping (SLAM)
+framework with some features like efficient IMU pre-integration with bias 
+correction, automatic estimator initialization and online extrinsic 
+calibration. Starting with a robust estimator initialization, 
+a tightly coupled, nonlinear optimization-based method is utilized to 
+obtain highly accurate visual-inertial odometry by fusing pre-integrated 
+IMU measurements and feature observations.
+% TODO 内容太少
+
+\subsubsection{Depth Fusion}
+% KinectFusion-based approaches fuse depth into a single volumetric 3D surface 
+% model, leading to a limitation on the size for the reconstruction. 
+% For mixed reality and robot navigation scenarios, reconstruction scope should n
+% ot be limited in a fixed space. 
+In robot navigation scenarios, the movement scope of the UAV is tremendous, leading to a 
+demand for scalability.
+By focusing on the representation of the occupied scene, we can utilize GPU memory 
+much more efficiently, which enables much larger reconstruction scale. 
+The voxel hashing method \cite{niener2013real-time} is adopted in our system for depth fusion. 
+The dense surface is represented with a volumetric, truncated signed distance function (TSDF) 
+which divides 3D space into regular grids called voxels. 
+To compress volumetric TSDFs, only occupied voxels (observerd surface) 
+are allocated and the empty space is not stored. 
+The access and update of the implicit surface data is achieved by an efficient spatial hashing technique. 
+Given a camera pose from the last step and its corresponding depth map,
+% \color{red}{How you get these? What are your input of this part?}
+we first allocate new voxel blocks and insert it into the hash table. 
+Then we traverse all allocated voxel blocks to update each voxel with color and weight information based on the depth map. 
+To ensure that the GPU memory is enough to store large-scale models, voxel blocks outside of the current view frustum is streamed out from the device (GPU) to the host (CPU). 
+Also voxel blocks can be streamed from host back to device. 
+In the end we get a fused depth map by raycasting the fused geometry in the current camera pose and use it for pose estimation of the next frame. 
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.9\columnwidth]{display.png}
+  \caption{We blend the raycasted surface with RGB images. There is a clear distinction between 
+  reconstructed (close part) and unreconstructed (distant part) area of the car.}
+  \label{fig:display}
+\end{figure}
+
+\subsection{Reconstruction Visualization}
+\label{sec:visulization}
+% The HMD is not only used for controlling the UAV, but also for viewing the scene. 
+Completeness is an important standard for measuring the quality of 3D models. 
+% Telexistence with joystick control necessitates manipulators scanning the reconstruction target in a 
+% fixed order manually to ensure model completeness since they don't know whether a region is
+% reconstructed or not. This problem can be solved by an HMD. 
+Since a telexistence user is required to wear an HMD during the flight, he/she is not able to view the 
+fused models on-the-fly in an extra screen.  
+Different from previous works which only display raw RGB images, we also visualize the 
+reconstructed geometry in the HMD. Aeras where have been scanned and successfully reconstructed 
+will be shown in variable colors, whereas areas where have not been scanned or properly fused will be displayed in 
+the form of raw RGB images. With the scanning hint as navigation guidance, the user could perceive the scanning progress and fine tune 
+the position and orientation of the drone. Thus a more complete model of the target is obtained.
+% And it also benefits the 3D reconstruction. 
+% Traditionally, users watch the recorded images through 2D displays or directly watch the UAV to control its motion. 
+% It is very difficult for the user to predict how much the UAV will go or what the UAV will record with the operations on joysticks or keyboards. 
+% But when viewing from the HMD, it is just like the user's eyes are on the UAV, and it is more natural for the user to perform the control. 
+% What's more, we develop a real-time reconstruction method and thus we could render the online reconstructed geometry blended with the recorded images. 
+% As a consequence, the user could see which parts of the object are currently not reconstructed and could move to control the UAV to record those parts from an ideal direction and position. 
+% In this way, we could easily and naturally perform a complete 3D reconstruction. 
+
+% TODO figure to be updated
+% An example of what users see in HMD is shown in \autoref{fig:display}. 
+\autoref{fig:display} is an example of our rendering technique. 
+In every frame, we blend RGB image with raycasted surface from the 
+current camera position and render it in the HMD. 
+Denote the maximum and minimum depth our sensor is able to capture is $d_{max}$ and $d_{min}$ respectively.
+Assume that we have got the current camera pose and fused the current depth frame into the global TSDF model.
+We are going to visualize the reconstructed geometry along with the color map.
+We firstly extract the model surface and get a depth map by raycasting the TSDF model 
+and convert it to HSV color space.
+% following \cite{Smith:1978:CGT:965139.807361}. 
+The HSV model has three dimensions: Hue $H$, Saturation $S=1.0$, and value $V=0.5$.
+Give a pixel with a depth value $d$, $H$ is calculated as
+\begin{equation}
+  d_{nor} = (d-d_{min}) / (d_{max}-d_{min}),
+\end{equation}
+\begin{equation}
+  x =
+  \begin{cases}
+  0 & \mbox{if $(1-d_{nor})<0$}  \\
+  1 & \mbox{if $(1-d_{nor})>1$}  \\
+  1-d_{nor} & \mbox{otherwise}
+  \end{cases},
+  \end{equation}
+\begin{equation}
+  H = 
+  \begin{cases}
+    360 * x - 120 + 359 & \mbox{if $(360 * x - 120)<0$}  \\
+    360 * x - 120 & \mbox{otherwise}
+  \end{cases}.
+\end{equation}
+The depth map in HSV color space is then converted to RGB space following 
+\cite{Smith:1978:CGT:965139.807361} and blended with current RGB image in a ratio of $4:6$. 
+This ratio ensures distinct differences between the overlay and the RGB images, and the latter remains 
+the main part. 
+With the feedback of the temporal and spatial varying color-coded surface, users could look for holes shown in HMD 
+and actively drive UVA to the unreconstructed area to fill the holes. 
+
+A naive solution here is to use a fixed color to represent the reconstructed surface and overlap it with the recorded image. 
+However, it is not always distinguishable especially when there are objects with the same color in the scene. 
+To make the reconstructed surface very noticeable, we color-code the depth of the surface and 
+overlap the color on top of the images. 
+% Specifically, given the current camera pose, we get a depth map of visible surface by raycasting the fused model and convert the depth map to HSV color space following \cite{Smith:1978:CGT:965139.807361}. 
+% The depth map in the form of HSV is then converted to RGB and blended with current RGB image in a ratio of $4:6$.
+% This ratio ensures distinct differences between the overlay and the RGB images, and the latter is still 
+% the main part. 
+% In this way, the reconstructed regions will have varying colors and thus can be easily distinguished with other unreconstructed regions. 
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.7\columnwidth]{BasicMapping.png}
+  \caption{The motion of the user for the UAV control. The origin is the initial
+  position of the user. $\vec{c}$ is the vector from the origin to the current position and $\vec{d}$ indicates the viewing direction of the HMD/user. Notice that this is a 2D projection (along the vertical axis) of the real 3D motion. }
+  \label{fig:BasicMapping}
+\end{figure}
+
+\subsection{Drone Control}
+\label{subsec:mapping}
+The mostly widely used joystick interface involves auxiliary 
+equipment for a VR user to manipulate the UAV. 
+We introduce an HMD-based motion mapping method of Xia et al. \cite{8797791} 
+for drone control. \autoref{fig:BasicMapping} is an illustration 
+of the HMD-to-UAV motion mapping mechanism.
+The initial position $o$ of the user is set as the origin of the motion sphere.
+The motion sphere is formed as a virtual circular area with a predefined radius 
+$r$. Whether the user is standing inside or outside the motion sphere, the yaw 
+angle of the user is directly mapped to that of the UAV, and the pitch angle is 
+mapped to that of the camera via a PTZ. 
+If the user steps outside the motion sphere and the position vector from the origin 
+to the current position is denoted as $\vec{c}$, the horizontal velocities of the UAV in pitch and 
+roll are 
+\begin{equation}
+  \vec{v_p}=k*(\left|\vec{c}\right|-r)*\cos\theta; \quad \vec{v_r}=k*(\left|\vec{c}\right|-r)*\sin\theta,
+\end{equation}
+where $\theta$ is the angle between vector $\vec{c}$ and yaw direction 
+vector $\vec{d}$, and $k=1$ is the gain factor which can be adapted by users'
+preference.
+If the user steps back into the motion sphere, the UAV will stop ceasing moving 
+and keep hovering at the current location.
+To adjust the height of the UAV, the user could stand on his/her toes or 
+squatting down and the UAV will move accordingly.
+
+In this way, we embed drone control and telexistence display into only the HMD.
+Without any auxiliary device, the user could focus on remote sensing and 3D scanning 
+free from extra burden.
+
+% TODO 说明为什么要用不同的算法（环境对算法和硬件要求不一样）
+%\subsubsection{Simulation system}
+
+%\subsubsubsection{Allocation:}
+
+% TODO 讲得太笼统 把pose estimating和fusion分开讲
+
+%\subsubsection{Real prototype}
+
+
+%\subsubsection{HMD based Reconstruction}
+
+
+
+% Another advantage of HMD control based reconstruction is that it greatly reduces tracking 
+% failure. When using a joystick to control the drone, it's not easy to let the camera always
+% face towards the target, especially when turning a corner. This is due to 
+% the difficulty in simultaneously controlling the flight direction and orientation. As for 
+% our rate-control motion mapping mechanism, UAV's orientation is determined by the user's 
+% orientation while flight direction is determined by user's position and they do not 
+% interact with each other. Thus we can get more stable images and less tracking failure.
+
+
+
+
+
+
+\section{Experiments}
+
+% We build a simulation system to validate our 
+% proposed motion mapping mechanism. 
+% With the simulation system, we compare our motion mapping 
+% mechanism with five state-of-the-art methods. 
+% As the AOU scheme is the key contribution of our motion mapping mechanism, we further evaluate its effectiveness also by the simulation system. 
+% The comparison and evaluation are performed by user studies with three 
+% objective indicators and four subjective questions. Then, we demonstrate the usage of our technique in 3D reconstruction, which shows a new manner to involve human in the loop to achieve a more complete reconstruction. Finally, we demonstrate our 
+% real prototype by outdoor tests and discuss the limitations of our current system.
+
+In this section, we first build a simulated UAV 3D reconstruction to validate our 
+visualization mechanism in terms of qualitative and quantitative evaluation.
+A real prototype is further developed to demonstrate the usability of our whole system.
+We also compare our visual-inertial odometry with the ICP tracker to verify its effectiveness
+in modelling.
+
+\subsection{Simulation Systems}
+
+Since it's difficult to obtain the ground-truth models of real world objects, we 
+just do quantitative evaluations on the reconstruction results of simulation system. 
+Evaluation method in \cite{Knapitsch2017} is employed. Firstly, we manually align our 
+reconstructed point clouds to the ground truth using an extension of ICP to similarity 
+transformations (including scale). Then we resample aligned reconstruction and crop it 
+according to the bounding volume of the ground-truth model. Finally the \emph{accuracy} and the 
+\emph{completeness} of the percentage metric is calculated.
+
+\autoref{table:ReconEva} shows the quantitative results of the the two methods. \emph{Acc.} 
+represents accuracy while \emph{Comp.} represents completeness. \emph{f-score} measures the 
+overall performance of accuracy and completeness. HMD-based reconstruction outperforms 
+joystick-based reconstruction in accuracy, completeness and the overall quality with a 
+significant margin. In \autoref{fig:f-score}, the \emph{f-score} curves in different thresholds are 
+given, and demonstrate that HMD-based reconstruction outputs models in a higher quality. 
+
+
+
+% \emph{Telexistence System.} 
+% We build a simulation environment in Unity3D. We first set up a 3D
+% outdoor scene, where our virtual UAV will
+% fly and the telexistence task will be performed. Our virtual UAV
+% provides 3-DOF translation and 1-DOF rotation on the yaw direction.
+% This setting is to imitate the real UAV which can not generate pure
+% rotations on the pitch and roll directions without any translations. The
+% rest 2-DOFs are provided by a virtual PTZ on the UAV where our
+% virtual stereo camera is placed. The HMD used in the simulation
+% system is the same as the one used in the real prototype. It provides
+% the 6-DOF motion parameters of user's head and displays the
+% recorded frames of the stereo camera. Note that there is little
+% mapping error and delay of motion response 
+%  in the simulation system. We believe this is the ideal situation that 
+% the prototype system can achieve.
+
+% We devise a task for evaluating different motion mapping solutions 
+% which is illustrated in Fig. 7. In the task, the user will 
+% control the UAV to approach four waypoints sequentially and each 
+% one of them is rendered as a shining ball in the scene. When the task begins, 
+% the UAV will appear in the middle of the field and the user needs to 
+% survey the surroundings to find the first waypoint. After controlling 
+% the UAV to approach it, the user would see a green arrow pointing to 
+% the waypoint in a certain direction. It requires the user to tune the 
+% orientation of UAV carefully to pass through. With more accurate aligning 
+% with the specified direction, the higher scores will be achieved, while 
+% large angular deviation will cause a prohibited access. Once the current 
+% waypoint is passed, a new one will be generated in the scene and the user 
+% should repeat the operations above. The mission is completed as soon as 
+% all waypoints are reached.
+
+% Several vital details in this task are emphasized as following. 
+% The initial position of the UAV is fixed, but the four waypoints 
+% are randomly placed in the scene to ensure that the latter tested 
+% mapping method will not benefit from the experience of the user. 
+% Although the distance between successive waypoints is slightly 
+% different, the total distance is equivalent for each mission to 
+% evaluate the effectiveness reasonably. In addition, we set two 
+% restrictions on the judgement of passing through the waypoint. 
+% One requirement is that the angle between the direction vectors 
+% of the impact velocity and the arrow should be less than 5°. 
+% Another is that the distance between the impact point and the 
+% position of waypoint where the arrow aims at should be less than 0.5. 
+% Since the radius of waypoint is set to 2, the task is neither simple 
+% nor difficult for the manipulator. We conduct our experiments in the 
+% form of blind test, in which case, the mapping mechanisms are tested 
+% in a random order as well.
+
+% We devise a task for evaluating different motion mapping solutions, which is illustrated in \autoref{fig:unity}, also in our accompanying video. In the task, the user will
+% control the UAV to move to 4 target locations one by one. The
+% UAV will be initialized in the middle of the scene, and the first location 
+% will be rendered as a shining ball. The
+% user should first saccade the surroundings to find the ball, and then move 
+% towards it. The user would see a green arrow pointing
+% to the ball in a certain direction. It means that the user 
+% should approach the ball in the direction of the arrow. So it is necessary for 
+% the user to tune the position and direction of the UAV carefully.
+% If the user passes through the ball, a new ball will be
+% generated in the scene and the user should follow the same rules to accomplish the task. 
+ 
+% There are some important details in the task. %The initial position of the UAV is fixed. 
+% To ensure that the latter tested mapping methods do not benefit from the 
+% experience of the user, the target locations are generated in a random way.
+% Note that the generation of the locations guarantees that the total minimum distance to finish the task is fixed. And we confirm that our task covers all the 6-DOF motion. In addition, we set two restrictions
+% on the judgment of whether the user successfully passes through the target locations.
+% One requirement is that the UAV should collide a sphere which is centered at the location with a radius $\rho$ ($\rho$= 0.5m). The other is that the angle between the collision velocity and the 
+% direction of the arrow should be less than $5^{\circ}$. 
+% %Since the radius of the point is set to 2, the task is neither simple nor difficult. 
+% We conduct our experiments, of course, in the form of 
+% blind test, which means the mapping mechanisms are tested in a random order.
+
+% \emph{3D Reconstruction System.} Another simulation system is developed to demonstrate that our HMD-based control helps to perform UAV-based 3D reconstruction of a static scene. The simulation is performed on Gazebo \cite{7014315}, a robot simulation 
+% platform which is integrated with Robot Operating System (ROS) for easy robot communication. 
+% In this simulator, a UAV is simulated, so are the physical environment including wind, gravity 
+% and GPS jamming. 
+% Since it doesn't provide a virtual PTZ, the drone only achieves 4-DOF, but it has little impact on 
+% reconstruction.
+% With a virtual Kinect sensor set onboard, we can easily record the ground-truth depth and RGB 
+% images of the virtual world. 
+% We adopt BundleFusion \cite{dai2017bundlefusion} as 
+% our reconstruction method in the simulation system. 
+% Sparse RGB features are used for coarse global pose estimation, followed by a refining step using photometric and geometric consistency for fine-scale alignment. Give a known camera pose, the depth map is fused into volumetric model then.
+% In this task, users are asked to control the UAV to move around objects, and thus the recorded depth can be fused together to build 3D models of the objects.
+% The users will use our technique and a joystick to control the UAV.
+
+%Depth data is directly obtained by a virtual Kinect sensor in the simulation system.
+
+%BundleFusion systematically addresses the mentioned issues in a single, end-to-end real-time reconstruction framework. At the core of it is a local-to-global hierarchical pose estimation strategy considering the complete of RGB-D input without the need for explicit loop closure detection. Sparse RGB features are used for coarse global pose estimation, followed by dense step including photometric and geometric consistency for fine-scale alignment. Give a known camera pose, the depth map is fused into volumetric model then.
+
+
+\subsection{Prototype}
+\label{sec:prototype}
+
+\subsubsection{Experiment Setup}
+Our quadcopter is developeded using the open source flight control PX4.
+A MYNTAI D1000-50/Color stereo camera which outputs RGB and depth stream 
+with a resolution of $640 * 480$ at the rate of 30 FPS is set onboard.
+A PTZ is also employed for image stabilization. 
+The camera is mounted on an NVIDIA Jetson TX2 computing device which is 
+responsible for transfering the captured video stream to our ground statoin 
+via a WiFi connection. Our ground station running Win10 is equipped with a
+AMD Ryzen 7 3800X CPU, a 16GB ram and an NVIDIA RTX 2060 super GPU. 
+An Oculus Rift capable of capturing 6-DOF motion is used as the HMD in our 
+system.
+
+
+% We adopt an Oculus Rift with a resolution of $1280 * 720$ as the HMD
+% in our system. We setup one IR sensor to track the 6-DOF motions
+% of the HMD in real time. The sensor is placed one and a half meter in front 
+% of the user with about one meter high. 
+% The ground station is based on a PC running Win10, equipped with a 24GB RAM, an AMD Ryzen 5 2600X
+% Six-Core processor and two NVIDIA GeForce GTX Titan XP graphics cards.
+% We do not use the
+% off-the-shelf UAV as they cannot fully satisfy our requirement. Instead,
+% we DIY a UAV with a Pixhawk flight control unit, a GPS and a pan-tilt-zoom. 
+% The stereo camera onboard is MYNTAI D1000-50/Color, which is equipped with an IMU and outputs 
+% depth map ranging from 0.49m-10m at the rate of 30 fps. A NVIDIA Jetson TX2 is utilized for image 
+% capture and data transmission.
+
+Latency is a non-negligible issue in a real-time telexistence system. 
+High latency of images and commands transmission may result in unsafe 
+teleoperation and simulator sickness. Moreover, since the quality of imagery is 
+important to the immersive experience, it is essential to ensure the fidelity 
+and stabilization of the video streaming. 
+Thus, we need an appropriate transmission 
+solution to tradeoff between latency and fidelity.
+In our prototype, we transfer video streams from the UAV to the ground station via WiFi 
+connection. A 5.8GHz digital downlink is adopted to convey controlling signals which are 
+packed by MAVLink protocol to the UAV. 
+% TODO 总延迟估计
+%The data transmission modules are already detailed in Sect. 3.3.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.9\columnwidth]{newuav.png}
+  \caption{Top: the frontal and back side of the UAV; 
+  Bottom: the HMD, the modules for data transmisstion and a NVIDIA Jetson TX2 respectively.
+  }
+  \label{fig:UAV}
+\end{figure}
+
+\autoref{fig:UAV} shows the real equipment of our prototype. We can see the two
+transmission modules on the UAV and the HMD with its sensor as well.
+The usage of our prototype is demonstrated in our video. Please refer to our video to see 
+how a user control a UAV to navigate in a large outdoor scene. A brief illustration 
+is shown in \autoref{fig:teaser}.
+
+\subsubsection{Quantitative Evaluation}
+Since it's difficult to obtain the ground-truth models of real world objects, we 
+just do qualitative evaluations on the reconstruction results of Our real prototype. 
+%We validate our method in real world. 
+\autoref{fig:ReconstructionCompReal} shows the comparison on the scanned results.
+The first example is reconstructing a 4-meter high stone. When using the joystick, it's easy for the user to cover all 
+the surface of the stone in a relative low altitude, but when it comes to a relative high altitude, it is difficult for the 
+user to perceive the UAV's height, so the top of the stone is reconstructed incompletely. Our solution does not suffer this problem and thus we get better result. 
+The second example is to scan a truck. 
+As the truck has a relative complex geometry, it is difficult for the joystick user to cover all the pieces of the truck and thus the result contains a lot of holes. For the HMD user, as the current result can be observed during the scanning, holes can be rescanned and a more complete result is finally obtained.  
+
+% When using our system to perform 3D reconstruction, we estimate depth from the stereo camera. The common depth-based tracker requires a high accuracy of depth map. 
+% However, the magnitude of noise associated with depth estimated from stereo 
+% is not so small as that of RGB-D cameras. Therefore, we adopt VINS-Mono \cite{qin2017vins}, 
+% a visual-inertial odometry to compute vehicle egomotion. \cite{qin2017vins} is a real-time SLAM 
+% framework featuring efficient IMU pre-integration with bias correction, 
+% automatic estimator initialization online extrinsic calibration.
+% Starting with a robust procedure for estimator initialization, a tightly coupled, nonlinear 
+% optimization-based method is used to obtain highly accurate visual-inertial odometry by fusing 
+% preintegrated IMU measurements and feature observations.
+% The camera pose estimated by Vins-Mono is then used as input for depth fusion, which is the same 
+% as that of simulation system.
+
+%There are some important details in the task. The initial position of
+%the UAV is fixed, but the 5 target po  枯·华林ints are randomly placed in the
+%scene. This is to guarantee that the latter tested mapping method will not
+%benefite from the experience of the user. Even though the points are
+%randomly placed, there are still some rules for setting them. First, the
+%points will always be in the frontal side of the UAV so that the user could
+%easily find the points. Otherwise, the time used to find a point will have
+%large random variation for different users, which adds noise to our user
+%study. Second, even though the relative position between a new point
+%and its previous point have some randomness, their distance is fixed.
+%This is to keep the total workload fixed for each compared solutions.
+
+% \begin{figure}[t]
+%     \centering
+%     \includegraphics[width=0.9\columnwidth]{unity.png}
+%     \caption{The task of our experiment. Step 1: identify the 
+%     point in the scene; Step 2: approach the point and 
+%     identify the required direction for passing through; Step 3: adjust 
+%     the position and direction; Step 4: reach the point; Step 5: identify 
+%     the next point.}
+%     \label{fig:unity}
+% \end{figure}
+
+% \begin{table*}[htbp]
+
+%   \caption{Statistics of different methods on Time, Distance, Score and Workload.}
+
+%   \begin{center}
+%       \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+%           \hline
+%           \multirow{2}*{\textbf{Methods}}
+%           & \multicolumn{3}{|c|}{\textbf{Time}} & \multicolumn{3}{|c|}{\textbf{Distance}} & \multicolumn{3}{|c|}{\textbf{Score}} & \multicolumn{3}{|c|}{\textbf{Workload}} \\
+%           \cline{2-13}
+%           & \textbf{\textit{Mean}} & \textbf{\textit{SD}} & \textbf{\textit{CI}}
+%           & \textbf{\textit{Mean}} & \textbf{\textit{SD}} & \textbf{\textit{CI}}
+%           & \textbf{\textit{Mean}} & \textbf{\textit{SD}} & \textbf{\textit{CI}}
+%           & \textbf{\textit{Mean}} & \textbf{\textit{SD}} & \textbf{\textit{CI}} \\
+%           \hline
+%           MFH & 334.86 & 184.44 & 87.68 
+%           & 1018.48 & 515.71 & 245.10 
+%           & 77.17 & 0.64 & 0.30
+%           & 4.65 & 0.98 & 0.47 \\
+%           \hline
+%           HR & 230.12 & 115.51 & 45.28 
+%           & 794.42 & 253.79 & 99.48 
+%           & 77.26 & 0.78 & 0.31
+%           & 2.30 & 0.58 & 0.23 \\
+%           \hline
+%           FP & 211.47 & 95.96 & 37.62 
+%           & 659.19 & 239.17 & 93.75
+%           & 77.23 & 0.67 & 0.26
+%           & 3.23 & 0.89 & 0.35 \\
+%           \hline
+%           Ours & \textbf{138.09} & 46.38 & 17.73
+%           & \textbf{540.59} & 265.68 & 102.1 
+%           & \textbf{77.76} & 0.69 & 0.27 
+%           & \textbf{1.46} & 0.45 & 0.17 \\
+%           \hline
+%       \end{tabular}
+%   \end{center}
+%   \label{table:MethodComp}
+% \end{table*}
+
+
+% \begin{table*}[h]
+%   \caption{Statistics of our method w/o AOU on Time, Distance, Score and Workload.}
+%   \begin{center}
+%       \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+%           \hline
+%           \multirow{2}*{\textbf{Methods}}
+%           & \multicolumn{3}{|c|}{\textbf{Time}} & \multicolumn{3}{|c|}{\textbf{Distance}} & \multicolumn{3}{|c|}{\textbf{Score}} & \multicolumn{3}{|c|}{\textbf{Workload}} \\
+%           \cline{2-13}
+%           & \textbf{\textit{Mean}} & \textbf{\textit{SD}} & \textbf{\textit{CI}}
+%           & \textbf{\textit{Mean}} & \textbf{\textit{SD}} & \textbf{\textit{CI}}
+%           & \textbf{\textit{Mean}} & \textbf{\textit{SD}} & \textbf{\textit{CI}}
+%           & \textbf{\textit{Mean}} & \textbf{\textit{SD}} & \textbf{\textit{CI}} \\
+%           \hline
+%           without AOU & 25.24 & 10.23 & 6.4 
+%           & 118.28 & 22.05 & 13.67 
+%           & 31.04 & 7.21 & 4.47
+%           & 2.5 & 0.63 & 0.39 \\
+%           \hline
+%           with AOU & \textbf{19.48} & 3.24 & 2.01 
+%           & \textbf{98.77} & 5.02 & 3.11 
+%           & \textbf{32.03} & 7.47 & 4.63
+%           & \textbf{2.21} & 0.83 & 0.51 \\
+%           \hline
+%       \end{tabular}
+%   \end{center}
+%   \label{table:evaluation}
+% \end{table*}
+
+
+% \subsection{Comparisons}
+% \label{sec:comp}
+% % In this section, we will compare our mapping method with three state-of-
+% % the-art techniques. \cite{Pittman:2014:EHT:2557500.2557527} 
+% % compared four HMD-based mapping mechanisms.
+% % By adding the original version of the \emph{modified flying head} 
+% % \cite{Higuchi:2013:FHH:2468356.2468721},
+% % we briefly introduce the five mechanisms and our mechanism in Table 1.
+% % Details of the mapping can be found in the original papers. In our user
+% % study, we compare our methods with the three state-of-the-art methods,
+% % which are the \emph{modified flying head} (MFH), \emph{head rotation} (HR) 
+% % and \emph{flying plane} (FP).
+
+% In this section, we compare our motion mapping method with five state-of-the-art 
+% techniques. The head motion synchronization mechanism, which is called \emph{flying 
+% head} (FH) \cite{Higuchi:2013:FHH:2468356.2468721},
+% directly conveys the 3-DOF motions of the user, including horizontal and vertical 
+% translation as well as the rotation in yaw direction, to that of the UAV. By adding a turning 
+% technique, \cite{Pittman:2014:EHT:2557500.2557527} proposes the 
+% \emph{modified flying head} (MFH) which uses rotations to turn 360 degrees within the control 
+% space. There are another three motion mapping techniques mentioned 
+% in \cite{Pittman:2014:EHT:2557500.2557527}, including 
+% metaphors for plane-like banking control, called \emph{Flying Plane} (FP), and two virtual reality-inspired translation and rotation schemes, which are called \emph{Head Translation} (HT) and \emph{Head 
+% Rotation} (HR), respectively. The main characters of these five mechanisms and our method are 
+% intuitively shown in \autoref{table:MethodTable} and the details of them can be found in the 
+% corresponding papers.
+
+
+% Twenty-five participants are recruited to experience the user study and the 
+% average age is 24.24, from 19 to 41. Twenty participants 
+% are male and five of them are female. The HT method is too
+% difficult to operate the UAV according to the users' feedback, and 
+% the FH, which is the original version of position control, is also impossible to 
+% manipulate the UAV to far target points.
+% As a consequence, we only show the user study results of the other three 
+% mapping methods including MFH, HR and FP as well as our method.
+
+% The results of the three objective assessments 
+% are listed in \autoref{table:MethodComp}, where \textbf{Time} 
+% indicates the time 
+% consumed for the task in seconds, \textbf{Distance} indicates the total length of actual 
+% trajectory of the UAV in the virtual space in meters and \textbf{Score} represents the score achieved 
+% in the task (rescaled to [0, 80]) and 
+% %measured by the angle and distance error mentioned above). 
+% is calculated by:
+% \begin{equation}
+%     Score =\sum_{i=1}^{4} [10 * (1-\frac{\alpha_i}{180}) + 10 * (1-\frac{l_i}{\rho})] 
+% \end{equation}
+% where $i$ is the index of a target location, $\alpha_i$ is the angle between the collision
+% velocity and the direction of the arrow, $l_i$ is the minimum distance between the 
+% UAV and the target location. The four subjective assessments are integrated into one measurement, \textbf{Workload}. The workload numbers in \autoref{table:MethodComp} is calculated 
+% based on NASA-TLX \cite{doi:10.1177/154193120605000909,HART1988139}
+% by the rating of the four subjective assessments (mental demand, physical demand, effort and 
+% frustration) from 
+% the users. Each one is divided into ten levels from easy to difficult with 
+% identical intervals. Mental demand and physical demand are related to mental 
+% and physical consumption respectively. Effort measures how much effort users 
+% make to accomplish the task while frustration reflects the extent of 
+% discouragement and anger from users.  
+
+
+% \begin{figure}[t]
+%   \centering
+%   \includegraphics[width=\columnwidth]{CI1.jpg}
+%   \caption{95\% CIs of the 4 compared mapping mechanisms' results. Our approach outperforms 
+%   other mechanisms in all measurements.}
+%   \label{fig:CI1}
+% \end{figure}
+
+% \begin{figure}[th]
+%   \centering
+%   \includegraphics[width=\columnwidth]{CI2.png}
+%   \caption{95\% CIs of the results of our scheme with and without AOU. Our modified mapping 
+%   with AOU is more effective indicated by four measurements.}
+%   \label{fig:CI2}
+% \end{figure}
+
+
+% % Each one is divided into ten levels from easy 
+% % to difficult with identical intervals. Mental demand is known as how much 
+% % mental and perceptual activity are required, e.g. simple or complex. Physical demand 
+% % is known as how much physical activity is 
+% % required, e.g. restful or laborious. Effort measures that how hard users 
+% % try to accomplish their tasks while frustration measures 
+% % how insecure, discouraged, irritated, stressed and annoyed that users feel 
+% % during the task. 
+
+% The statistics shown in \autoref{table:MethodComp} include \textit{Mean} 
+% and Standard Deviation (\textit{SD}) values
+% on different dimensions.
+% To visualize the distributions and the significant differences of all compared algorithms, 
+% we also estimate the population means using $95\%$ confidence intervals (\textit{CI}). 
+% As shown in \autoref{fig:CI1}, our method has the lowest mean value on time, distance and 
+% workload as well as the highest score among all compared methods, which 
+% shows that our method has better performance. 
+% The performance of MFH is far behind our method on this task, because the position control 
+% method is not applicable to UAV telexistence within limited motion space in 
+% spite of its naturalness. The lower level of workload of our 
+% method is considered to be attributed to our natural involvement of body, which enhances the sense of presence, better spatial awareness and navigation 
+% performance \cite{Wells96thevirtual}. %In view of the difference of interval value, the result shows that our 
+% %method owns more stable performance in the task, which indicates it is appropriate 
+% %for most participants in our user study. 
+% The performance of 
+% HR and FP is not so good in our task. 
+% HR relies on the rotation of HMD to control the UAV, which may hinder the free viewing experience of users 
+% when they look for flying directions. Although the drawback can be overcome based on FP 
+% controlling, the common translation-to-velocity mechanism still can not achieve omni-directional 
+% motion mapping. Our AOU scheme and the full viewpoint control overcome the above two issues, and our motion mapping 
+% mechanism provides a more natural and intuitive interaction style which has been demonstrated 
+% in our user study.
+% To visualize the distributions and the significant differences 
+% of all compared algorithms, we estimate the population means of the above 
+% indicators using $95\%$ confidence intervals (CIs) as shown in \autoref{fig:8}.
+
+
+
+
+% Twenty five participants are recruited to accomplish the task.
+% The average age of participants is 24.65, from 19 to
+% 41. Twenty participants are male and five participants are female. 
+% The performance and perception of workload on each compared algorithms
+% are listed in Table 2, where T indicates the time used for the task and is
+% measured by seconds, D stands for the moving distance of the UAV in
+% the virtual world and is measured by meters. S represents the score
+% user gets in the task and is measured by the angle and distance error
+% mentioned above. The smaller the error, the higher the score. The workload in the 
+% table is calculate by the answer of
+% 4 questions from the users, which are related to the mental demand,
+% physical demand, Effort and frustration level. Details about calcualting
+% the workload can be found in \cite{doi:10.1177/154193120605000909,HART1988139}. As is shown in Table 3, the mean value,
+% the Standard Deviation (SD) and the 95\% Confidence Interval (CI) of the four 
+% statistical parameters are calculated. 
+  
+% It is clear in Table 2 that our method is dominant in T dimension compared with
+% other methods. With regrad to D dimension, the SD value of our method is referior
+% to HR and FP, since one user did badly in our task, lowering the overall result.
+% Due to our restrictions on rules, the socre of each mapping method 
+% is close to each other. analyse workload.
+% It is worth noting that 9 participants didn't fulfil 
+% the task when they tired
+% the MFH method owing to the limited room space. According to the participants'
+% replies, the HR method is easy to learn and operate, but it may cause an 
+% unintended movement when they look up and down, leading to a 
+% longer distance result.
+
+% We also employ t-test to show the difference between our method
+% with MFH, HR, and FP methods on T, D, S, and workload description.
+% According to the results of t-test shown in Table 3, on T dimension,
+% the performance on user study of MFH method, which t-value and
+% the significance-value equal to 2.602 and 0.016 respectively, is worse
+% than that of ours. The performance of HR is better than that of ours
+% for t-value and significance-value equaling to -2.150 and 0.043. Due
+% to the fact that the significance-value of FP is greater than 0.05, the
+% performance between FP and ours is not obvious. On D dimension,
+% since the t-value and the significance-value equal to 3.464 and 0.016,
+% the performance of MFH algorithm is worse than that of ours. But the
+% difference of performance between HR, FP and ours are not obvious for
+% their significance-value greater than 0.05. Similarly, on S dimension,
+% the performance of MFH and HR is worse than that of ours. But the
+% performance of FP is marginally worse than that of ours. On workload
+% dimension, the performance of MFH and FP are worst, marginally
+% worse than that of ours. The difference between HR and ours is not
+% obvious on the user study.
+
+% To conclude, ours method is superior to MFH on four dimensions.
+% Our method is inferior to HR on T dimension but better than
+% HR on S dimension. On S and workload dimensions, ours method is
+% marginally superior to FR method.
+
+% \begin{table}[H]
+%     \caption{Results of t-test analysis on method with and without AOU}
+%     \begin{center}
+%         \begin{tabular}{|c|c|c|c|c|c|c|}
+%             \hline
+%             & \multicolumn{2}{|c|}{\textbf{without AOU}} 
+%             & \multicolumn{2}{|c|}{\textbf{with AOU}} 
+%             & \multicolumn{2}{|c|}{\textbf{t-test}} \\
+%             \hline
+%             & \textbf{\textit{Mean}} & \textbf{\textit{SD}} 
+%             & \textbf{\textit{Mean}} & \textbf{\textit{SD}} 
+%             & \textbf{\textit{t}} & \textbf{\textit{Sig.}} \\
+%             \hline
+%             T & 25.24 & 10.32 & 19.48 & 3.24 & 1.619 & 0.166 \\
+%             \hline
+%             D & 118.38 & 22.05 & 98.77 & 5.02 & 2.539 & 0.052 \\
+%             \hline
+%             S & 31.04 & 7.21 & 32.03 & 7.47 & -0.716 & 0.506 \\
+%             \hline
+%             workload & 2.50 & 0.63 & 2.21 & 0.83 & 0.879 & 0.420 \\
+%             \hline
+%         \end{tabular}
+%     \end{center}
+% \end{table}
+
+
+
+
+
+
+% \subsection{Evaluation on AOU}
+
+% As indicated by some previous works in 3D 
+% interaction \cite{Zhai:1998:UPR:307710.307728,Besancon:2017:PGF:3025453.3025890}, 
+% the traditional rate-control method is not appropriate for devices without 
+% self-centering mechanism. 
+% Since human beings do not have self-centering mechanism, we propose the 
+% AOU scheme to reconfigure the origin. In this 
+% section, we evaluate this contribution of our motion mapping mechanism by the 
+% user study. 
+
+% The task is similar to the one described in \autoref{sec:comp}. We compare the difference 
+% between schemes with and without AOU on Time, Distance, Score and workload by recruiting 
+% 10 participants using $95\%$ confidence intervals. 
+% The results are shown in \autoref{table:evaluation} and \autoref{fig:CI2}.
+% As we can see in \autoref{table:evaluation}, on time and distance dimensions, the rate control method with AOU owns better performance than the one without 
+% AOU. On the score dimension, there is no obvious evidence for a difference between the two methods as AOU is not designed for fine-tuning directions or positions. We see that the method with AOU has lower 
+% workload than the one without it. This indicates that AOU makes it easier and more effective for users to complete the task, because there is no need to identify the initial position to get the origin in any cases. 
+
+% First, we evaluate our anisotropic speed mapping (ASM) scheme.
+% We recruit 10 participants to experience this comparison. The t-test
+% statistical method is employed to compare the difference between ASM
+% and without ASM on T, D, S and workload. The comparison results are
+% listed on Table 4.
+
+% According to the results of t-test, since the significance-value is
+% greater than 0.05 on T dimension, the difference on the two speed
+% mapping methods is not obvious. Since the t-value and the significancevalue
+% are 2.947 and 0.016 on D dimension, our proposed ASM method
+% superior to the one without it. According to the definition of S and
+% workload dimensions, similar with the comparison on D dimension, our
+% algorithm is superior to the compared method on the two dimensions.
+% In view of above, our method achieves better performance than the
+% without anisotropic speed mapping on D, S, and workload dimensions.
+% On T dimension, our algorithm is marginally superior to the compared
+% algorithm.
+
+% We mainly evaluate our adaptive origin update (AOU) scheme. This task is similar to 
+% the task above, but the user could pass through the waypoints casually with no restriction. 
+% We still employ t-test to compare the difference between schemes with and without
+% AOU on T, D, S and workload dimensions by recruiting 10
+% participants. The results are shown on Table 4.
+
+% According to the results of t-test, as the t-value and the significance value
+% in D dimension
+% equal 2.539 and 0.052 respectively, our proposed method is
+% marginally superior to the one without AOU scheme. On the other three
+% dimensions, it is accepted that the difference between the compared
+% algorithms and our algorithm is insignificant. In view of above, the
+% difference between the two compared methods is marginally obvious
+% only on D dimension. Considering on the smaller sample adopted in
+% this study, we should do further research to show the superiority of our
+% algorithm.
+
+\begin{figure*}[tbp]
+  \centering
+    \includegraphics[width=0.16\textwidth]{building1.png}
+    \includegraphics[width=0.16\textwidth]{building2.png}
+    \includegraphics[width=0.16\textwidth]{building3.png}
+    \includegraphics[width=0.16\textwidth]{building4.png}
+    \includegraphics[width=0.16\textwidth]{building5.png}
+    \includegraphics[width=0.16\textwidth]{building6.png}
+    \includegraphics[width=0.16\textwidth]{car1.png}
+    \includegraphics[width=0.16\textwidth]{car2.png}
+    \includegraphics[width=0.16\textwidth]{car3.png}
+    \includegraphics[width=0.16\textwidth]{car4.png}
+    \includegraphics[width=0.16\textwidth]{car5.png}
+    \includegraphics[width=0.16\textwidth]{car6.png}
+    \includegraphics[width=0.16\textwidth]{room1.png}
+    \includegraphics[width=0.16\textwidth]{room2.png}
+    \includegraphics[width=0.16\textwidth]{room3.png}
+    \includegraphics[width=0.16\textwidth]{room4.png}
+    \includegraphics[width=0.16\textwidth]{room5.png}
+    \includegraphics[width=0.16\textwidth]{room6.png}
+    \caption{Comparison of reconstruction results between HMD-based control (odd columns) and joystick-based control 
+    (even columns) in simulation system. Note that our approach which presents real-time reconstruction result as feedback 
+    to the user gets models with a high level of completeness.}
+    \label{fig:ReconstructionCompSimu}
+\end{figure*}
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.45\columnwidth]{stone2.png}
+  \includegraphics[width=0.45\columnwidth]{stone1.png}
+  \includegraphics[width=0.45\columnwidth]{stone4.png}
+  \includegraphics[width=0.45\columnwidth]{stone3.png}
+  \includegraphics[width=0.45\columnwidth]{truck2.png}
+  \includegraphics[width=0.45\columnwidth]{truck1.png}
+  \includegraphics[width=0.45\columnwidth]{truck4.png}
+  \includegraphics[width=0.45\columnwidth]{truck3.png}
+  \caption{Comparison of reconstruction resluts between HMD-based control (left) and joystick-based control 
+  (right) in real world. }
+  \label{fig:ReconstructionCompReal}
+\end{figure}
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.9\columnwidth]{eva_suv.png}
+  \includegraphics[width=0.9\columnwidth]{eva_building.png}
+  \caption{F-score of the results of HMD-based and joystick-based reconstruction.}
+  \label{fig:f-score}
+\end{figure}
+
+\begin{table*}[t]
+  \caption{Quantitative results on the HMD-based and joystick-based reconstruction. We evaluate the two 
+    methods using the percentage metric with 30mm and 60mm thresholds.}
+  \begin{center}
+    \begin{tabular}{ccccc|ccc}
+      \hline
+                                &                               & \multicolumn{3}{c|}{Percentage($<$30mm)}         & \multicolumn{3}{c}{Percentage($<$60mm)}          \\ \hline
+      \multicolumn{1}{r}{}      & \multicolumn{1}{c|}{}         & \textit{Acc.} & \textit{Comp.} & \textit{f-score} & \textit{Accu.} & \textit{Comp.} & \textit{f-score} \\ \hline
+      \multirow{2}{*}{car}      & \multicolumn{1}{c|}{HMD}      &\textbf{47.48}      &\textbf{27.62}       &\textbf{34.93}                  &\textbf{81.49}      &\textbf{50.72}       &\textbf{62.53}                  \\
+                                & \multicolumn{1}{c|}{Joystick} &24.65      &18.71       &21.27                  &49.72      &38.94       &43.67                  \\ \hline
+      \multirow{2}{*}{building} & \multicolumn{1}{c|}{HMD}      &\textbf{90.04}      &\textbf{74.97}       &\textbf{81.82}                  &\textbf{94.92}       &\textbf{85.19}       &\textbf{89.79}                  \\
+                                & \multicolumn{1}{c|}{Joystick} &81.50      &72.51       &76.74                  &88.82       &84.47       &89.59                  \\ \hline
+      \end{tabular}
+  \end{center}
+  \label{table:ReconEva}
+\end{table*}
+
+\subsection{Results for 3D Reconstruction}
+We evaluate our system in terms of both qualitative and   
+quantitative of the accuracy of the obtained 3D reconstructions. 
+
+\subsubsection{Qualitative Evaluation}
+\autoref{fig:ReconstructionCompSimu} shows a comparison between the two control methods. It is apparent 
+that, with the aid of live reconstruction result as flight navigation, the accuracy and completeness 
+of object reconstruction are significantly improved by using our method to control the UAV. In the case of scanning a building, holes, where the 
+object surface can not be easily perceived by depth camera or is occluded, are filled by our active 
+reconstruction. What’s more, our HMD-based telexistence decouples flight direction and orientation of 
+the UAV by the motion mapping mechanism, and thus acquires more stable images, making 
+tracking more robust. As 
+demonstrated in \autoref{fig:ReconstructionCompSimu}, manipulating the UAV by joystick can not give as good results as our solution. The main reason is that it is not possible for the user to know the current scanning progress in the scanning process. The user does not know whether there are some holes or fusion errors in the scanned region,and thus it is impossible for them to adjust the scanning to make up.
+
+
+%There is an obvious distinction between the results in both sides of the truck, especially in the edge of the truck's surface where the joystick-based control may not cover.
+
+
+
+%% TODO 轨迹图
+%% TODO 我们还尝试了其他的算法
+
+%% TODO 室外的结果
+
+
+
+
+
+
+% \begin{table*}[]
+%   \caption{Quantitative results on the HMD-based and joystick-based reconstruction. We evaluate the two 
+%   methods using the percentage metric with 1mm and 2mm thresholds.}
+%   \begin{center}
+%     \begin{tabular}{cccccccc}
+%       \hline
+%                                                      &          &              & \multicolumn{3}{c|}{Percentage}                                & \multicolumn{3}{c}{Percentage}           \\ \hline
+%       \multicolumn{1}{r}{}                           &          &              & \textit{Acc.}  & \textit{Comp.} & \multicolumn{1}{c|}{\textit{f-score}} & \textit{Acc.}  & \textit{Comp.} & \textit{f-score} \\ \hline
+%       \multirow{2}{*}{car}                           & HMD      &              & \multicolumn{1}{c|}{}                 &       &       & \multicolumn{1}{c|}{}                 &       &       &                  \\
+%                                                      & Joystick &              & \multicolumn{1}{c|}{}                 &       &       & \multicolumn{1}{c|}{}                 &       &       &                  \\ \hline
+%       \multirow{2}{*}{building}                      & HMD      &              & \multicolumn{1}{c|}{}                 &       &       & \multicolumn{1}{c|}{}                 &       &       &                  \\
+%                                                      & Joystick &              & \multicolumn{1}{c|}{}                 &       &       & \multicolumn{1}{c|}{}                 &       &       &                  \\ \hline
+%       \end{tabular}
+%   \end{center}
+%   \label{table:ReconEva}
+% \end{table*}
+
+% \begin{figure}
+%   \centering
+%   \subfigure[Small Box with a Long Caption]{
+%     \label{fig:subfig:a} %% label for first subfigure
+%     \includegraphics[width=1.0in]{pic1.eps}}
+%   \hspace{1in}
+%   \subfigure[Big Box]{
+%     \label{fig:subfig:b} %% label for second subfigure
+%     \includegraphics[width=1.5in]{pic.eps}}
+%   \caption{Two Subfigures}
+%   \label{fig:subfig} %% label for entire figure
+% \end{figure}
+
+
+%We select
+%some key frames and show them in \autoref{fig:11} and \autoref{fig:12}. 
+%\autoref{fig:11} shows the
+%UAV motions of taking off, rotation and moving forward, while \autoref{fig:12}
+%shows the motions of sidewise shifting and landing off. From the figures,
+%we can see that the motion of the UAV and the images shown on the
+%HMD both correspond to the real motion of the user, indicating the
+%effectiveness of our real system.
+
+%\subsection{Transmission}
+%\label{sec:transmission}
+
+
+%We attempt several image transmission modules in our system. First,
+%the video stream is encoded by H.264 on Raspberry PI 3B SCM and transmitted to 
+%the ground station through Wi-Fi via UDP protocol. The latency is generally about 
+%400ms and even more than one second if the operating distance exceeds 50m, which is 
+%unacceptable in our real-time system. Furthermore, once the Wi-Fi connection is broken 
+%up, the system would take a few seconds to reconnect, which may cause unsafe teleoperation. 
+%We also attempt a 5.8GHz analogy signal transmission module based on PAL encoding with 
+%reduced latency about 200ms, however, with a poor imagery quality. 
+
+
+
+\subsection{Limitations}
+
+Our prototype still suffers from the latency caused by different components
+of our system. As is mentioned, transmitting images
+back to the ground station takes about 200ms and the motion control
+signals need about 50ms to be received by the UAV. Furthermore, the
+mechanical system takes about 250ms to response the motion control
+signals correctly. As a consequence, our system has about 500ms
+latency. Owing to the latency, the user should move slowly to use the system
+and thus the telexistence experience is limited. Reducing
+this latency is the key issue to make this kind of techniques to be really
+practical in our daily lives.
+	
+	%\begin{figure*}[h]
+  %\centering
+  %\includegraphics[width=2\columnwidth]{fig11.png}
+  %\caption{Illustration of our prototype to perform taking off, 
+  %rotation and moving forward in the telexistence scenario. 
+  %Top: the user wearing the HMD; Middle: the UAV in the scene; 
+  %Bottom: the images shown in the HMD.}
+  %\label{fig:11}
+%\end{figure*}
+%\begin{figure*}[h]
+  %\centering
+  %\includegraphics[width=2\columnwidth]{fig12.png}
+  %\caption{Illustration of using our prototype to perform right shifting, 
+  %left shifting and landing off in the telexistence scenario. Top: the user 
+  %wearing the HMD; Middle: the UAV in the scene; Bottom: the images shown in the HMD.}
+  %\label{fig:12}
+%\end{figure*}
+
+% Our AOU scheme brings a problem that
+% the user may step out of the sensing range in extreme cases. Currently, we just involve 
+% a restart mechanism that allows users to freely set the origin of the controlling 
+% space without changing the position of the UAV. So if the user is approaching 
+% the sensing boundary, the system will make an alarm and the user could enable the restart 
+% mechanism to move and set a new origin. 
+
+% Our system employs several parameters, which may influence users' experience 
+% and different users may have different experiences for
+% the same set of parameters. In all our experiments, we first tune the
+% parameters by 3-5 users and then fix them. But from the feedback of the
+% users, the parameters are not perfect for all of them. For example,
+% some users say the system is too sensitive that the UAV moves when
+% they just want to saccade in the scene, indicating we should set $r$
+% to a larger value. On the other hand, some other users say that they do not want to move
+% that far to move the UAV, indicating that a smaller $r$ is better
+% for them. To this end, we think it is better to recognize the
+% semantic meanings (e.g. rotating head or moving the upper body) of
+% the user’s actions, rather than a threshold on the user’s position. In the
+% future, we would like to label some data and train a model to distinguish
+% the meanings of users motions. Better performance is expected to be
+% achieved.
+
+\section{Conclusion}
+
+In this paper, we have developed a 6-DOF telexistence drone to present free 
+viewpoint control and 3D immersive viewing experience to a user.
+There are three key contributions of our technique. Firstly, in the 
+motion mapping part, we propose an AOU scheme that handles the lack of 
+self-centering in the body-involved rate-control mechanism, which is treated as 
+a key problem of this kind of techniques 
+\cite{Zhai:1998:UPR:307710.307728,Besancon:2017:PGF:3025453.3025890}. 
+Secondly, we integrate a PTZ into our telexistence drone, which not only enables 
+the full 6-DOF for users to control the drone and view the scene, but also compensates 
+the jittering motion of the drone and thus help to record more stable images for users.
+%can be freely and naturally controlled by the user’s head motions via an
+%HMD. Meanwhile, the stereo videos recorded by cameras on the drone
+%are streamed back and displayed to the user to generate immersive
+%viewing experience. The whole system runs in real-time in a simulation
+%system and generates vivid telexistence experience to users. 
+Thirdly, ours system performs real-time 3D reconstruction, the result of which is
+taken as a feedback to the user, and obtains more accurate, complete object models with 
+less reconstruction failure. The user
+study indicates that the novel motion controlling method outperforms
+the existing methods, and the prototype system achieves full 6-
+DOF controlling by combining
+both the UAV and the PTZ. The advantages of HMD based control reconstruction is also 
+validated in the experiemnts.
+
+% if have a single appendix:
+%\appendix[Proof of the Zonklar Equations]
+% or
+%\appendix  % for no appendix heading
+% do not use \section anymore after \appendix, only \section*
+% is possibly needed
+
+% use appendices with more than one appendix
+% then use \section to start each appendix
+% you must declare a \section before using any
+% \subsection or using \label (\appendices by itself
+% starts a section numbered zero.)
+%
+
+
+% \appendices
+% \section{Proof of the First Zonklar Equation}
+% Appendix one text goes here.
+
+% % you can choose not to have a title for an appendix
+% % if you want by leaving the argument blank
+% \section{}
+% Appendix two text goes here.
+
+
+% use section* for acknowledgment
+\section*{Acknowledgment}
+
+
+The authors would like to thank...
+
+
+% Can use something like this to put references on a page
+% by themselves when using endfloat and the captionsoff option.
+\ifCLASSOPTIONcaptionsoff
+  \newpage
+\fi
+
+
+
+% trigger a \newpage just before the given reference
+% number - used to balance the columns on the last page
+% adjust value as needed - may need to be readjusted if
+% the document is modified later
+%\IEEEtriggeratref{8}
+% The "triggered" command can be changed if desired:
+%\IEEEtriggercmd{\enlargethispage{-5in}}
+
+% references section
+
+% can use a bibliography generated by BibTeX as a .bbl file
+% BibTeX documentation can be easily obtained at:
+% http://mirror.ctan.org/biblio/bibtex/contrib/doc/
+% The IEEEtran BibTeX style support page is at:
+% http://www.michaelshell.org/tex/ieeetran/bibtex/
+\bibliographystyle{./bib/IEEEtran}
+% argument is your BibTeX string definitions and bibliography database(s)
+\bibliography{TII}
+%
+% <OR> manually copy in the resultant .bbl file
+% set second argument of \begin to the number of references
+% (used to reserve space for the reference number labels box)
+% \begin{thebibliography}{1}
+
+% \bibitem{IEEEhowto:kopka}
+% H.~Kopka and P.~W. Daly, \emph{A Guide to \LaTeX}, 3rd~ed.\hskip 1em plus
+%   0.5em minus 0.4em\relax Harlow, England: Addison-Wesley, 1999.
+
+% \end{thebibliography}
+
+% biography section
+% 
+% If you have an EPS/PDF photo (graphicx package needed) extra braces are
+% needed around the contents of the optional argument to biography to prevent
+% the LaTeX parser from getting confused when it sees the complicated
+% \includegraphics command within an optional argument. (You could create
+% your own custom macro containing the \includegraphics command to make things
+% simpler here.)
+%\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{mshell}}]{Michael Shell}
+% or if you just want to reserve a space for a photo:
+
+% \begin{IEEEbiography}{Michael Shell}
+% Biography text here.
+% \end{IEEEbiography}
+
+% % if you will not have a photo at all:
+% \begin{IEEEbiographynophoto}{John Doe}
+% Biography text here.
+% \end{IEEEbiographynophoto}
+
+% % insert where needed to balance the two columns on the last page with
+% % biographies
+% %\newpage
+
+% \begin{IEEEbiographynophoto}{Jane Doe}
+% Biography text here.
+% \end{IEEEbiographynophoto}
+
+% You can push biographies down or up by placing
+% a \vfill before or after them. The appropriate
+% use of \vfill depends on what kind of text is
+% on the last page and whether or not the columns
+% are being equalized.
+
+%\vfill
+
+% Can be used to pull up biographies so that the bottom of the last one
+% is flush with the other column.
+%\enlargethispage{-5in}
+
+
+
+% that's all folks
+\end{document}
+
+
